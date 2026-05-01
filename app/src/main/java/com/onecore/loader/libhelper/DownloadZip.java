@@ -100,7 +100,7 @@ public class DownloadZip {
                     LinearLayout.LayoutParams.MATCH_PARENT,
                     LinearLayout.LayoutParams.MATCH_PARENT));
             downloadOverlay.setGravity(Gravity.CENTER);
-            downloadOverlay.setBackgroundColor(Color.parseColor("#CC070B14"));
+            downloadOverlay.setBackgroundColor(Color.parseColor("#CC000000"));
             downloadOverlay.setOrientation(LinearLayout.VERTICAL);
             downloadOverlay.setClickable(true);
             downloadOverlay.setFocusable(true);
@@ -275,12 +275,12 @@ public class DownloadZip {
             LinearLayout dialogLayout = new LinearLayout(context);
             dialogLayout.setOrientation(LinearLayout.VERTICAL);
             dialogLayout.setPadding(40, 40, 40, 40);
-            dialogLayout.setBackgroundColor(Color.parseColor("#101827"));
+            dialogLayout.setBackgroundColor(Color.parseColor("#111111"));
             
             android.graphics.drawable.GradientDrawable bgShape = new android.graphics.drawable.GradientDrawable();
             bgShape.setShape(android.graphics.drawable.GradientDrawable.RECTANGLE);
             bgShape.setCornerRadius(16);
-            bgShape.setColor(Color.parseColor("#101827"));
+            bgShape.setColor(Color.parseColor("#111111"));
             dialogLayout.setBackground(bgShape);
             
             TextView titleText = new TextView(context);

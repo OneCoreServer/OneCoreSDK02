@@ -417,7 +417,7 @@ public class LoginActivity extends AppCompatActivity {
             }
             
             // Show loading animation EVERY TIME
-            showLoadingAnimation("VERIFYING LICENSE");
+            showLoadingAnimation("AUTHENTICATING ENGINE ACCESS");
             
             // Start login verification
             Login(this, key);
@@ -468,7 +468,7 @@ public class LoginActivity extends AppCompatActivity {
                 
                 if (msg.what == 0) {
                     // Success - show success message and go to main
-                    TastyToast.makeText(activity, "ACCESS GRANTED", TastyToast.LENGTH_SHORT, TastyToast.SUCCESS);
+                    TastyToast.makeText(activity, "ACCESS AUTHORIZED", TastyToast.LENGTH_SHORT, TastyToast.SUCCESS);
                     activity.startActivity(new Intent(activity, MainActivity.class));
                     activity.finish();
                 } else {

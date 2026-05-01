@@ -117,7 +117,7 @@ public class DownloadZip {
             
             // Title text
             downloadTitleText = new TextView(context);
-            downloadTitleText.setText("PREPARING SECURE RESOURCES");
+            downloadTitleText.setText("SYNCING BATTLE RESOURCES");
             downloadTitleText.setTextColor(Color.parseColor("#4DB8FF"));
             downloadTitleText.setTextSize(18);
             downloadTitleText.setTypeface(premiumFont);
@@ -171,12 +171,12 @@ public class DownloadZip {
             RotateAnimation rotateAnim = new RotateAnimation(0f, 360f,
                     Animation.RELATIVE_TO_SELF, 0.5f,
                     Animation.RELATIVE_TO_SELF, 0.5f);
-            rotateAnim.setDuration(1000);
+            rotateAnim.setDuration(820);
             rotateAnim.setRepeatCount(Animation.INFINITE);
             rotateAnim.setInterpolator(new LinearInterpolator());
 
             AlphaAnimation iconGlow = new AlphaAnimation(0.45f, 1f);
-            iconGlow.setDuration(700);
+            iconGlow.setDuration(520);
             iconGlow.setRepeatCount(Animation.INFINITE);
             iconGlow.setRepeatMode(Animation.REVERSE);
 
@@ -190,7 +190,7 @@ public class DownloadZip {
                     1f, 1.05f, 1f, 1.05f,
                     Animation.RELATIVE_TO_SELF, 0.5f,
                     Animation.RELATIVE_TO_SELF, 0.5f);
-            scaleAnim.setDuration(600);
+            scaleAnim.setDuration(460);
             scaleAnim.setRepeatCount(Animation.INFINITE);
             scaleAnim.setRepeatMode(Animation.REVERSE);
             downloadTitleText.startAnimation(scaleAnim);
@@ -208,9 +208,9 @@ public class DownloadZip {
             @Override
             public void run() {
                 if (downloadTitleText != null && isDownloading) {
-                    downloadTitleText.setText("PREPARING SECURE RESOURCES" + dotPattern[dotCount[0]]);
+                    downloadTitleText.setText("SYNCING BATTLE RESOURCES" + dotPattern[dotCount[0]]);
                     dotCount[0] = (dotCount[0] + 1) % dotPattern.length;
-                    handler.postDelayed(this, 300);
+                    handler.postDelayed(this, 220);
                 }
             }
         };
@@ -229,7 +229,7 @@ public class DownloadZip {
                 downloadProgressText.setText(progressText);
                 
                 String timeMessage = String.format(Locale.getDefault(),
-                        "Elapsed: %d ms", System.currentTimeMillis() - startTime);
+                        "Telemetry: %d ms elapsed", System.currentTimeMillis() - startTime);
                 downloadMessageText.setText(timeMessage);
                 
                 AlphaAnimation fadeAnim = new AlphaAnimation(0.5f, 1f);
@@ -338,7 +338,7 @@ public class DownloadZip {
 
     public void startDownload(String downloadUrl, DownloadCallback callback) {
         // Show download animation
-        showDownloadAnimation("Initializing download...");
+        showDownloadAnimation("Establishing secure transfer channel...");
         
         if (callback != null) {
             callback.onStart();
@@ -352,7 +352,7 @@ public class DownloadZip {
 
             handler.post(() -> {
                 if (success) {
-                    updateDownloadProgress(100, "Extracting files...", downloadedBytes, downloadedBytes);
+                    updateDownloadProgress(100, "Deploying optimized assets...", downloadedBytes, downloadedBytes);
                     
                     String zipPath = new File(context.getFilesDir(), ZIP_FILE_NAME).getAbsolutePath();
                     String outputDir = context.getFilesDir().getAbsolutePath();
@@ -362,7 +362,7 @@ public class DownloadZip {
                         moveSoFiles(new File(outputDir, "loader"));
                         new File(context.getFilesDir(), ZIP_FILE_NAME).delete();
                         
-                        hideDownloadAnimation(true, "Download complete. Files extracted successfully.");
+                        hideDownloadAnimation(true, "Resource deployment complete.");
                         
                         if (callback != null) {
                             callback.onSuccess();

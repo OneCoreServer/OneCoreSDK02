@@ -4,10 +4,10 @@
     <solid android:color="#001A1F33" />
     <stroke
         android:width="2dp"
-        android:color="#35F3FF" />
+        android:color="#4DB8FF" />
     <gradient
-        android:startColor="#0035F3FF"
-        android:endColor="#557A5CFF"
+        android:startColor="#004DB8FF"
+        android:endColor="#552F6BFF"
         android:type="radial"
         android:gradientRadius="80"
         android:centerX="0.5"

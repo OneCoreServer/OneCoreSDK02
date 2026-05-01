@@ -110,7 +110,7 @@ public class DownloadZip {
             // Download icon with rotation
             downloadIcon = new ImageView(context);
             downloadIcon.setImageResource(android.R.drawable.stat_sys_download);
-            downloadIcon.setColorFilter(Color.parseColor("#35F3FF"));
+            downloadIcon.setColorFilter(Color.parseColor("#4DB8FF"));
             LinearLayout.LayoutParams iconParams = new LinearLayout.LayoutParams(70, 70);
             iconParams.bottomMargin = 20;
             downloadIcon.setLayoutParams(iconParams);
@@ -118,7 +118,7 @@ public class DownloadZip {
             // Title text
             downloadTitleText = new TextView(context);
             downloadTitleText.setText("PREPARING SECURE RESOURCES");
-            downloadTitleText.setTextColor(Color.parseColor("#35F3FF"));
+            downloadTitleText.setTextColor(Color.parseColor("#4DB8FF"));
             downloadTitleText.setTextSize(18);
             downloadTitleText.setTypeface(premiumFont);
             downloadTitleText.setGravity(Gravity.CENTER);
@@ -127,7 +127,7 @@ public class DownloadZip {
             // Message text
             downloadMessageText = new TextView(context);
             downloadMessageText.setText(message);
-            downloadMessageText.setTextColor(Color.parseColor("#B335F3FF"));
+            downloadMessageText.setTextColor(Color.parseColor("#B34DB8FF"));
             downloadMessageText.setTextSize(12);
             downloadMessageText.setTypeface(premiumFont);
             downloadMessageText.setGravity(Gravity.CENTER);
@@ -142,14 +142,14 @@ public class DownloadZip {
             progressParams.bottomMargin = 10;
             downloadProgressBar.setLayoutParams(progressParams);
             if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.LOLLIPOP) {
-                downloadProgressBar.setProgressTintList(android.content.res.ColorStateList.valueOf(Color.parseColor("#35F3FF")));
-                downloadProgressBar.setProgressBackgroundTintList(android.content.res.ColorStateList.valueOf(Color.parseColor("#3335F3FF")));
+                downloadProgressBar.setProgressTintList(android.content.res.ColorStateList.valueOf(Color.parseColor("#4DB8FF")));
+                downloadProgressBar.setProgressBackgroundTintList(android.content.res.ColorStateList.valueOf(Color.parseColor("#334DB8FF")));
             }
             
             // Progress text
             downloadProgressText = new TextView(context);
             downloadProgressText.setText("0% • 0.00 MB / 0.00 MB");
-            downloadProgressText.setTextColor(Color.parseColor("#35F3FF"));
+            downloadProgressText.setTextColor(Color.parseColor("#4DB8FF"));
             downloadProgressText.setTextSize(11);
             downloadProgressText.setTypeface(premiumFont);
             downloadProgressText.setGravity(Gravity.CENTER);
@@ -288,7 +288,7 @@ public class DownloadZip {
             titleText.setTextSize(20);
             titleText.setTypeface(getPremiumFont(), Typeface.BOLD);
             titleText.setGravity(Gravity.CENTER);
-            titleText.setTextColor(success ? Color.parseColor("#35F3FF") : Color.parseColor("#FF4444"));
+            titleText.setTextColor(success ? Color.parseColor("#4DB8FF") : Color.parseColor("#FF4444"));
             titleText.setPadding(0, 0, 0, 20);
             
             TextView messageText = new TextView(context);
@@ -312,7 +312,7 @@ public class DownloadZip {
             android.graphics.drawable.GradientDrawable buttonShape = new android.graphics.drawable.GradientDrawable();
             buttonShape.setShape(android.graphics.drawable.GradientDrawable.RECTANGLE);
             buttonShape.setCornerRadius(25);
-            buttonShape.setColor(Color.parseColor("#35F3FF"));
+            buttonShape.setColor(Color.parseColor("#4DB8FF"));
             buttonText.setBackground(buttonShape);
             
             dialogLayout.addView(titleText);

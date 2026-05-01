@@ -143,14 +143,14 @@ public class FileCopyTask {
             
             copyIcon = new ImageView(activity);
             copyIcon.setImageResource(android.R.drawable.stat_sys_download);
-            copyIcon.setColorFilter(Color.parseColor("#35F3FF"));
+            copyIcon.setColorFilter(Color.parseColor("#4DB8FF"));
             LinearLayout.LayoutParams iconParams = new LinearLayout.LayoutParams(70, 70);
             iconParams.bottomMargin = 20;
             copyIcon.setLayoutParams(iconParams);
             
             copyTitleText = new TextView(activity);
             copyTitleText.setText("COPYING FILES");
-            copyTitleText.setTextColor(Color.parseColor("#35F3FF"));
+            copyTitleText.setTextColor(Color.parseColor("#4DB8FF"));
             copyTitleText.setTextSize(18);
             copyTitleText.setTypeface(premiumFont);
             copyTitleText.setGravity(Gravity.CENTER);
@@ -158,7 +158,7 @@ public class FileCopyTask {
             
             copyMessageText = new TextView(activity);
             copyMessageText.setText("");
-            copyMessageText.setTextColor(Color.parseColor("#B335F3FF"));
+            copyMessageText.setTextColor(Color.parseColor("#B34DB8FF"));
             copyMessageText.setTextSize(12);
             copyMessageText.setTypeface(premiumFont);
             copyMessageText.setGravity(Gravity.CENTER);
@@ -172,13 +172,13 @@ public class FileCopyTask {
             progressParams.bottomMargin = 10;
             copyProgressBar.setLayoutParams(progressParams);
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-                copyProgressBar.setProgressTintList(android.content.res.ColorStateList.valueOf(Color.parseColor("#35F3FF")));
-                copyProgressBar.setProgressBackgroundTintList(android.content.res.ColorStateList.valueOf(Color.parseColor("#3335F3FF")));
+                copyProgressBar.setProgressTintList(android.content.res.ColorStateList.valueOf(Color.parseColor("#4DB8FF")));
+                copyProgressBar.setProgressBackgroundTintList(android.content.res.ColorStateList.valueOf(Color.parseColor("#334DB8FF")));
             }
             
             copyProgressText = new TextView(activity);
             copyProgressText.setText("0% • 0.00 MB / 0.00 MB");
-            copyProgressText.setTextColor(Color.parseColor("#35F3FF"));
+            copyProgressText.setTextColor(Color.parseColor("#4DB8FF"));
             copyProgressText.setTextSize(11);
             copyProgressText.setTypeface(premiumFont);
             copyProgressText.setGravity(Gravity.CENTER);
@@ -302,7 +302,7 @@ public class FileCopyTask {
             titleText.setTextSize(20);
             titleText.setTypeface(getPremiumFont(), Typeface.BOLD);
             titleText.setGravity(Gravity.CENTER);
-            titleText.setTextColor(success ? Color.parseColor("#35F3FF") : Color.parseColor("#FF4444"));
+            titleText.setTextColor(success ? Color.parseColor("#4DB8FF") : Color.parseColor("#FF4444"));
             titleText.setPadding(0, 0, 0, 20);
             
             TextView messageText = new TextView(activity);
@@ -326,7 +326,7 @@ public class FileCopyTask {
             android.graphics.drawable.GradientDrawable buttonShape = new android.graphics.drawable.GradientDrawable();
             buttonShape.setShape(android.graphics.drawable.GradientDrawable.RECTANGLE);
             buttonShape.setCornerRadius(25);
-            buttonShape.setColor(Color.parseColor("#35F3FF"));
+            buttonShape.setColor(Color.parseColor("#4DB8FF"));
             buttonText.setBackground(buttonShape);
             
             dialogLayout.addView(titleText);

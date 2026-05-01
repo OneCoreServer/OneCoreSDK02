@@ -50,8 +50,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="8.0dip"
                 android:layout_marginTop="20.0dip"
-                android:progressBackgroundTint="#3335F3FF"
-                android:progressTint="#35F3FF"
+                android:progressBackgroundTint="#334DB8FF"
+                android:progressTint="#4DB8FF"
                 android:max="100"
                 android:indeterminate="false" />
             
@@ -61,7 +61,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="12dp"
                 android:text="0%"
-                android:textColor="#AA35F3FF"
+                android:textColor="#AA4DB8FF"
                 android:textSize="12sp"
                 android:textStyle="bold"
                 android:visibility="visible" />

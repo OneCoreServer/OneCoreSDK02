@@ -14,7 +14,7 @@
         android:id="@+id/btn_settings"
         android:layout_width="80.0dip"
         android:layout_height="80.0dip"
-        android:src="@drawable/ic_launcher"
+        android:src="@drawable/ic_new_update"
         android:layout_marginTop="5dp"
         android:layout_marginBottom="5dp"
         android:scaleType="centerCrop"
@@ -33,7 +33,7 @@
 
         <TextView
             android:textSize="20.0sp"
-            android:textColor="#35F3FF"
+            android:textColor="#4DB8FF"
             android:gravity="center"
             android:layout_gravity="center"
             android:id="@+id/PremiumFileManager"
@@ -42,7 +42,7 @@
             android:text="Your Premium Subscription Ends On"
             android:fontFamily="@font/acme"
             android:letterSpacing="0.05"
-            android:shadowColor="#3335F3FF"
+            android:shadowColor="#334DB8FF"
             android:shadowDx="1"
             android:shadowDy="1"
             android:shadowRadius="3"/>
@@ -65,7 +65,7 @@
 
                 <TextView
                     android:textSize="28.0sp"
-                    android:textColor="#35F3FF"
+                    android:textColor="#4DB8FF"
                     android:gravity="center"
                     android:id="@+id/tv_d"
                     android:layout_width="fill_parent"
@@ -90,7 +90,7 @@
             <TextView
                 android:textSize="28.0sp"
                 android:textStyle="bold"
-                android:textColor="#35F3FF"
+                android:textColor="#4DB8FF"
                 android:padding="2.0dip"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -106,7 +106,7 @@
 
                 <TextView
                     android:textSize="28.0sp"
-                    android:textColor="#35F3FF"
+                    android:textColor="#4DB8FF"
                     android:gravity="center"
                     android:id="@+id/tv_h"
                     android:layout_width="fill_parent"
@@ -131,7 +131,7 @@
             <TextView
                 android:textSize="28.0sp"
                 android:textStyle="bold"
-                android:textColor="#35F3FF"
+                android:textColor="#4DB8FF"
                 android:padding="2.0dip"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -147,7 +147,7 @@
 
                 <TextView
                     android:textSize="28.0sp"
-                    android:textColor="#35F3FF"
+                    android:textColor="#4DB8FF"
                     android:gravity="center"
                     android:id="@+id/tv_m"
                     android:layout_width="fill_parent"
@@ -172,7 +172,7 @@
             <TextView
                 android:textSize="28.0sp"
                 android:textStyle="bold"
-                android:textColor="#35F3FF"
+                android:textColor="#4DB8FF"
                 android:padding="2.0dip"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -188,7 +188,7 @@
 
                 <TextView
                     android:textSize="28.0sp"
-                    android:textColor="#35F3FF"
+                    android:textColor="#4DB8FF"
                     android:gravity="center"
                     android:id="@+id/tv_s"
                     android:layout_width="fill_parent"
@@ -279,7 +279,7 @@
 
             <TextView
                 android:textSize="13.0sp"
-                android:textColor="#35F3FF"
+                android:textColor="#4DB8FF"
                 android:gravity="center"
                 android:id="@+id/installIndia"
                 android:background="@drawable/ios_install_button"
@@ -328,7 +328,7 @@
         <TextView
             android:textSize="18.0sp"
             android:textStyle="bold"
-            android:textColor="#35F3FF"
+            android:textColor="#4DB8FF"
             android:gravity="center"
             android:id="@+id/tv_announcement"
             android:layout_width="fill_parent"

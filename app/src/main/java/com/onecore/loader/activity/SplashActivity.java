@@ -42,7 +42,7 @@ public class SplashActivity extends Activity {
     // Midnight Black to Electric Yellow gradient - Dark Mode Premium
     private final int COLOR_START = Color.parseColor("#000000");     // Pure Black
     private final int COLOR_CENTER = Color.parseColor("#1A1A1A");    // Dark Gray
-    private final int COLOR_END = Color.parseColor("#35F3FF");       // Electric Yellow
+    private final int COLOR_END = Color.parseColor("#4DB8FF");       // Electric Yellow
     
     private FrameLayout background;
     private ImageView logo;

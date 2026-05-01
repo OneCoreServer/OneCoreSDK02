@@ -93,7 +93,7 @@ public class LoginActivity extends AppCompatActivity {
         private int angle = 0;
         private final Handler handler = new Handler();
         private final Paint paint = new Paint();
-        private final int[] colors = {Color.parseColor("#000000"), Color.parseColor("#1A1A1A"), Color.parseColor("#35F3FF")};
+        private final int[] colors = {Color.parseColor("#000000"), Color.parseColor("#1A1A1A"), Color.parseColor("#4DB8FF")};
         private final float[] positions = {0.0f, 0.5f, 1.0f};
         private final Runnable animator;
         private final LinearGradient gradient;
@@ -167,7 +167,7 @@ public class LoginActivity extends AppCompatActivity {
             oval.set(bounds);
             paint.setShader(new SweepGradient(
                     bounds.centerX(), bounds.centerY(),
-                    new int[]{0, Color.parseColor("#35F3FF"), Color.parseColor("#7A5CFF"), 0},
+                    new int[]{0, Color.parseColor("#4DB8FF"), Color.parseColor("#2F6BFF"), 0},
                     new float[]{0f, 0.25f, 0.75f, 1f}
             ));
             canvas.drawArc(oval, -90f, sweepAngle, false, paint);
@@ -220,7 +220,7 @@ public class LoginActivity extends AppCompatActivity {
             // Create loading text
             loadingText = new TextView(LoginActivity.this);
             loadingText.setText(message);
-            loadingText.setTextColor(Color.parseColor("#35F3FF"));
+            loadingText.setTextColor(Color.parseColor("#4DB8FF"));
             loadingText.setTextSize(20);
             loadingText.setTypeface(android.graphics.Typeface.DEFAULT_BOLD);
             loadingText.setGravity(android.view.Gravity.CENTER);
@@ -229,7 +229,7 @@ public class LoginActivity extends AppCompatActivity {
             // Create loading spinner
             loadingSpinner = new ProgressBar(LoginActivity.this);
             loadingSpinner.setIndeterminate(true);
-            loadingSpinner.setIndeterminateTintList(android.content.res.ColorStateList.valueOf(Color.parseColor("#35F3FF")));
+            loadingSpinner.setIndeterminateTintList(android.content.res.ColorStateList.valueOf(Color.parseColor("#4DB8FF")));
             
             loadingOverlay.addView(loadingSpinner);
             loadingOverlay.addView(loadingText);
@@ -312,7 +312,7 @@ public class LoginActivity extends AppCompatActivity {
             // Create message text
             TextView messageText = new TextView(LoginActivity.this);
             messageText.setText(errorMessage != null && !errorMessage.isEmpty() ? errorMessage : "USER OR GAME NOT REGISTERED");
-            messageText.setTextColor(Color.parseColor("#35F3FF"));
+            messageText.setTextColor(Color.parseColor("#4DB8FF"));
             messageText.setTextSize(16);
             messageText.setGravity(android.view.Gravity.CENTER);
             messageText.setPadding(20, 10, 20, 20);
@@ -326,7 +326,7 @@ public class LoginActivity extends AppCompatActivity {
             // Get Key Button
             TextView getKeyBtn = new TextView(LoginActivity.this);
             getKeyBtn.setText("GET KEY");
-            getKeyBtn.setTextColor(Color.parseColor("#35F3FF"));
+            getKeyBtn.setTextColor(Color.parseColor("#4DB8FF"));
             getKeyBtn.setTextSize(14);
             getKeyBtn.setTypeface(android.graphics.Typeface.DEFAULT_BOLD);
             getKeyBtn.setPadding(40, 15, 40, 15);
@@ -340,7 +340,7 @@ public class LoginActivity extends AppCompatActivity {
             // Try Again Button
             TextView tryAgainBtn = new TextView(LoginActivity.this);
             tryAgainBtn.setText("TRY AGAIN");
-            tryAgainBtn.setTextColor(Color.parseColor("#35F3FF"));
+            tryAgainBtn.setTextColor(Color.parseColor("#4DB8FF"));
             tryAgainBtn.setTextSize(14);
             tryAgainBtn.setTypeface(android.graphics.Typeface.DEFAULT_BOLD);
             tryAgainBtn.setPadding(40, 15, 40, 15);
@@ -550,10 +550,10 @@ public class LoginActivity extends AppCompatActivity {
                 drawable.setShape(GradientDrawable.OVAL);
                 
                 int[] goldColors = {
-                    Color.parseColor("#35F3FF"),
+                    Color.parseColor("#4DB8FF"),
                     Color.parseColor("#FFC125"),
                     Color.parseColor("#FFB347"),
-                    Color.parseColor("#7A5CFF")
+                    Color.parseColor("#2F6BFF")
                 };
                 drawable.setColor(goldColors[random.nextInt(goldColors.length)]);
                 drawable.setAlpha(180);
@@ -598,7 +598,7 @@ public class LoginActivity extends AppCompatActivity {
         gradientDrawable.setShape(GradientDrawable.RECTANGLE);
         gradientDrawable.setCornerRadius((float) dpToPx(loginActivity, 16));
         gradientDrawable.setColor(Color.parseColor("#1A1A1A"));
-        gradientDrawable.setStroke(dpToPx(loginActivity, 2), Color.parseColor("#35F3FF"));
+        gradientDrawable.setStroke(dpToPx(loginActivity, 2), Color.parseColor("#4DB8FF"));
         return gradientDrawable;
     }
     

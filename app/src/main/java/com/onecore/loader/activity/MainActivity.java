@@ -30,6 +30,7 @@ import com.onecore.loader.floating.FloatLogo;
 import com.onecore.loader.floating.Overlay;
 import com.onecore.loader.libhelper.DownloadZip;
 import com.onecore.loader.utils.CrashHandler;
+import com.onecore.loader.utils.Prefs;
 import com.Jagdish.tastytoast.TastyToast;
 import com.onecore.loader.BoxApplication;
 import com.onecore.loader.libhelper.ApkEnv;
@@ -58,6 +59,9 @@ public class MainActivity extends Activity {
     public static native String FixCrash();
     public String CURRENT_PACKAGE;
     private TextView installIndia, btnStartGame;
+    private View rootView;
+    private Prefs prefs;
+    private static final String PREF_THEME = "loader_theme";
     
     public static int gameType = 0;
     private boolean isGameLaunched = false;
@@ -85,8 +89,14 @@ public class MainActivity extends Activity {
         countDownStart();
         GameJsonMods();
         sharedPreferences = getSharedPreferences(getPackageName(), Activity.MODE_PRIVATE);
+        prefs = new Prefs(this);
         CheckFloatViewPermission();
         
+        rootView = findViewById(R.id.main_root);
+
+        View themeButton = findViewById(R.id.btn_theme);
+        themeButton.setOnClickListener(v -> showThemePicker());
+
         selectedGamePkg = GAME_LIST_PKG[0];
         gameType = 5;
         isIndiaSelected = true;
@@ -94,6 +104,7 @@ public class MainActivity extends Activity {
         // Find Views
         installIndia = findViewById(R.id.installIndia);
         btnStartGame = findViewById(R.id.btn_start_game);
+        applySelectedTheme();
         
         // Update Install Button State
         updateButtonState(0, installIndia);
@@ -134,6 +145,71 @@ public class MainActivity extends Activity {
                 // You can add any additional logic here if needed
             }
         });
+    }
+
+    private void showThemePicker() {
+        final String[] themeNames = new String[]{"Neon Blue", "Cyber Purple", "Emerald Tech", "Amber Elite"};
+        int selected = prefs.getInt(PREF_THEME, 0);
+        new AlertDialog.Builder(this)
+                .setTitle("Select Theme")
+                .setSingleChoiceItems(themeNames, selected, (dialog, which) -> {
+                    prefs.setInt(PREF_THEME, which);
+                    applySelectedTheme();
+                    dialog.dismiss();
+                })
+                .setNegativeButton("Cancel", null)
+                .show();
+    }
+
+    private void applySelectedTheme() {
+        int themeIndex = prefs.getInt(PREF_THEME, 0);
+        int accent;
+        int accentSoft;
+        switch (themeIndex) {
+            case 1:
+                accent = Color.parseColor("#9D4DFF");
+                accentSoft = Color.parseColor("#CEB2FF");
+                break;
+            case 2:
+                accent = Color.parseColor("#14E6A3");
+                accentSoft = Color.parseColor("#9FF8DD");
+                break;
+            case 3:
+                accent = Color.parseColor("#FFB347");
+                accentSoft = Color.parseColor("#FFD79A");
+                break;
+            case 0:
+            default:
+                accent = Color.parseColor("#4DB8FF");
+                accentSoft = Color.parseColor("#9AB4FF");
+                break;
+        }
+
+        if (rootView != null) rootView.setBackgroundColor(Color.parseColor("#000000"));
+        tintText(R.id.PremiumFileManager, accent);
+        tintText(R.id.tv_d, accent);
+        tintText(R.id.tv_h, accent);
+        tintText(R.id.tv_m, accent);
+        tintText(R.id.tv_s, accent);
+        tintText(R.id.IndiaVersion, accentSoft);
+        tintText(R.id.tv_announcement, accent);
+        tintText(R.id.tv_announcement2, accentSoft);
+        tintButtonBackground(R.id.installIndia, accent);
+        tintButtonBackground(R.id.btn_start_game, accent);
+    }
+
+    private void tintText(int id, int color) {
+        TextView view = findViewById(id);
+        if (view != null) view.setTextColor(color);
+    }
+
+    private void tintButtonBackground(int id, int color) {
+        View view = findViewById(id);
+        if (view == null || view.getBackground() == null) return;
+        view.getBackground().mutate().setTint(color);
+        if (view instanceof TextView) {
+            ((TextView) view).setTextColor(Color.parseColor("#EAF7FF"));
+        }
     }
     
     public void do_Lib_And_Run(String packageName) {

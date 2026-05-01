@@ -224,31 +224,12 @@
         android:layout_marginTop="15.0dip"
         android:padding="12dp">
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="Region: India (Always Active)"
-            android:textColor="#ffffd700"
-            android:textSize="16sp"
-            android:fontFamily="@font/acme"
-            android:textStyle="bold" />
-
         <LinearLayout
             android:gravity="center"
             android:orientation="vertical"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="12dp">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="ESP visibility control is managed automatically."
-                android:textColor="#ff00ffaa"
-                android:textSize="13sp"
-                android:fontFamily="@font/acme"
-                android:textStyle="bold" />
+            android:layout_marginTop="0dp">
 
     <!-- Game Info Card -->
     <LinearLayout
@@ -281,7 +262,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10.0dip"
-                android:text="Battlegrounds"
+                android:text="BGMI India Edition"
                 android:fontFamily="@font/acme"
                 android:textStyle="bold"/>
 
@@ -293,7 +274,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4.0dip"
-                android:text="Version: 4.2.0"
+                android:text="Latest Supported Version"
                 android:fontFamily="@font/acme"/>
 
             <TextView
@@ -304,7 +285,7 @@
                 android:background="@drawable/ios_install_button"
                 android:layout_width="100.0dip"
                 android:layout_height="34.0dip"
-                android:text="INSTALL"
+                android:text="INSTALL / UPDATE"
                 android:fontFamily="@font/acme"
                 android:paddingTop="7dp"
                 android:paddingBottom="7dp"
@@ -326,7 +307,7 @@
             android:layout_width="fill_parent"
             android:layout_height="48.0dip"
             android:layout_marginTop="20.0dip"
-            android:text="START GAME"
+            android:text="LAUNCH GAME"
             android:fontFamily="@font/acme"
             android:letterSpacing="0.1"/>
 
@@ -352,7 +333,7 @@
             android:id="@+id/tv_announcement"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:text="Premium Announcement"
+            android:text="OneCore Premium Notice"
             android:fontFamily="@font/acme"
             android:letterSpacing="0.08"/>
 
@@ -364,7 +345,7 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8.0dip"
-            android:text="Play Safe Avoid Report | Kill Limit 10"
+            android:text="Use responsibly and follow fair-play rules."
             android:fontFamily="@font/acme"/>
 
     </LinearLayout>

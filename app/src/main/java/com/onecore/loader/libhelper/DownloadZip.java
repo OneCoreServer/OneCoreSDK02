@@ -10,6 +10,7 @@ import android.view.Gravity;
 import android.view.View;
 import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
+import android.view.animation.AnimationSet;
 import android.view.animation.LinearInterpolator;
 import android.view.animation.RotateAnimation;
 import android.view.animation.ScaleAnimation;
@@ -116,7 +117,7 @@ public class DownloadZip {
             
             // Title text
             downloadTitleText = new TextView(context);
-            downloadTitleText.setText("✦ DOWNLOADING FILES ✦");
+            downloadTitleText.setText("✦ PREPARING SECURE RESOURCES ✦");
             downloadTitleText.setTextColor(Color.parseColor("#FFD700"));
             downloadTitleText.setTextSize(18);
             downloadTitleText.setTypeface(premiumFont);
@@ -167,20 +168,29 @@ public class DownloadZip {
             downloadOverlay.animate().alpha(1f).setDuration(300).start();
             
             // Rotate icon
-            RotateAnimation rotateAnim = new RotateAnimation(0f, 360f, 
-                    Animation.RELATIVE_TO_SELF, 0.5f, 
+            RotateAnimation rotateAnim = new RotateAnimation(0f, 360f,
+                    Animation.RELATIVE_TO_SELF, 0.5f,
                     Animation.RELATIVE_TO_SELF, 0.5f);
-            rotateAnim.setDuration(1500);
+            rotateAnim.setDuration(1000);
             rotateAnim.setRepeatCount(Animation.INFINITE);
             rotateAnim.setInterpolator(new LinearInterpolator());
-            downloadIcon.startAnimation(rotateAnim);
+
+            AlphaAnimation iconGlow = new AlphaAnimation(0.45f, 1f);
+            iconGlow.setDuration(700);
+            iconGlow.setRepeatCount(Animation.INFINITE);
+            iconGlow.setRepeatMode(Animation.REVERSE);
+
+            AnimationSet iconAnimation = new AnimationSet(true);
+            iconAnimation.addAnimation(rotateAnim);
+            iconAnimation.addAnimation(iconGlow);
+            downloadIcon.startAnimation(iconAnimation);
             
             // Pulse text
             ScaleAnimation scaleAnim = new ScaleAnimation(
                     1f, 1.05f, 1f, 1.05f,
                     Animation.RELATIVE_TO_SELF, 0.5f,
                     Animation.RELATIVE_TO_SELF, 0.5f);
-            scaleAnim.setDuration(800);
+            scaleAnim.setDuration(600);
             scaleAnim.setRepeatCount(Animation.INFINITE);
             scaleAnim.setRepeatMode(Animation.REVERSE);
             downloadTitleText.startAnimation(scaleAnim);
@@ -198,9 +208,9 @@ public class DownloadZip {
             @Override
             public void run() {
                 if (downloadTitleText != null && isDownloading) {
-                    downloadTitleText.setText("✦ DOWNLOADING FILES" + dotPattern[dotCount[0]] + " ✦");
+                    downloadTitleText.setText("✦ PREPARING SECURE RESOURCES" + dotPattern[dotCount[0]] + " ✦");
                     dotCount[0] = (dotCount[0] + 1) % dotPattern.length;
-                    handler.postDelayed(this, 400);
+                    handler.postDelayed(this, 300);
                 }
             }
         };
@@ -219,7 +229,7 @@ public class DownloadZip {
                 downloadProgressText.setText(progressText);
                 
                 String timeMessage = String.format(Locale.getDefault(),
-                        "⏱️ Time: %d ms", System.currentTimeMillis() - startTime);
+                        "⏱ Elapsed: %d ms", System.currentTimeMillis() - startTime);
                 downloadMessageText.setText(timeMessage);
                 
                 AlphaAnimation fadeAnim = new AlphaAnimation(0.5f, 1f);

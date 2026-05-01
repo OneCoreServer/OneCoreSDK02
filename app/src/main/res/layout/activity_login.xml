@@ -74,7 +74,7 @@
                     android:id="@+id/textVip2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="ENGINE LOADER"
+                    android:text="ENGINE"
                     android:fontFamily="@font/acme"
                     android:letterSpacing="0.05" />
                     
@@ -86,7 +86,7 @@
                 android:textColor="#FFFFFF"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Premium Access Loader"
+                android:text="Elite Access Gateway"
                 android:fontFamily="@font/montserratsemibold"
                 android:letterSpacing="0.08" />
                 
@@ -107,7 +107,7 @@
                 android:gravity="center"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="PLEASE ENTER YOUR LICENSE KEY 🗝️"
+                android:text="ENTER YOUR PREMIUM LICENSE KEY"
                 android:fontFamily="@font/montserratsemibold"
                 android:letterSpacing="0.08"
                 android:layout_marginBottom="10.0dip" />
@@ -153,7 +153,7 @@
                     android:inputType="textPassword"
                     android:textCursorDrawable="@drawable/premium_cursor"
                     android:fontFamily="@font/poppinsregular"
-                    android:hint="ENTER KEY HERE ☺️"
+                    android:hint="Paste your access key"
                     android:textSize="14sp" />
                     
                 <ImageView
@@ -185,7 +185,7 @@
                     android:id="@+id/btnSignIn"
                     android:layout_width="fill_parent"
                     android:layout_height="fill_parent"
-                    android:text="LOGIN HERE"
+                    android:text="ACTIVATE ACCESS"
                     android:fontFamily="@font/acme"
                     android:letterSpacing="0.1" />
                     
@@ -205,7 +205,7 @@
                     android:gravity="center"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Don't have key?"
+                    android:text="Need a license key?"
                     android:fontFamily="@font/poppinsregular" />
                     
                 <TextView
@@ -217,7 +217,7 @@
                     android:clickable="true"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="CLICK HERE"
+                    android:text="GET ACCESS"
                     android:fontFamily="@font/poppinsregular"
                     android:layout_marginStart="5.0dip" />
                     

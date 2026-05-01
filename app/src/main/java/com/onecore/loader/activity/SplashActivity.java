@@ -42,7 +42,7 @@ public class SplashActivity extends Activity {
     // Midnight Black to Electric Yellow gradient - Dark Mode Premium
     private final int COLOR_START = Color.parseColor("#000000");     // Pure Black
     private final int COLOR_CENTER = Color.parseColor("#1A1A1A");    // Dark Gray
-    private final int COLOR_END = Color.parseColor("#FFD700");       // Electric Yellow
+    private final int COLOR_END = Color.parseColor("#35F3FF");       // Electric Yellow
     
     private FrameLayout background;
     private ImageView logo;
@@ -213,11 +213,11 @@ public class SplashActivity extends Activity {
 
     private void updateProgressText(int value) {
         if (value < 30) {
-            progressText.setText("✦ INITIALIZING ✦");
+            progressText.setText("INITIALIZING");
         } else if (value < 70) {
-            progressText.setText("⚡ LOADING RESOURCES ⚡");
+            progressText.setText("LOADING RESOURCES");
         } else {
-            progressText.setText("✨ FINALIZING SETUP ✨");
+            progressText.setText("FINALIZING SETUP");
         }
         
         // Update percentage text
@@ -372,10 +372,10 @@ public class SplashActivity extends Activity {
 
         // Start progress
         if (isFirstTime) {
-            progressText.setText("✦ INITIALIZING FOR FIRST TIME ✦");
+            progressText.setText("INITIALIZING FIRST TIME SETUP");
             startProgress(5000, true);
         } else {
-            progressText.setText("⚡ WELCOME BACK! ⚡");
+            progressText.setText("WELCOME BACK");
             startProgress(2000, false);
         }
     }

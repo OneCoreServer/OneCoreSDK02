@@ -368,7 +368,7 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8.0dip"
-            android:text="Use responsibly and follow fair-play rules."
+            android:text="Enjoy the journey with OneCore SDK."
             android:fontFamily="@font/acme"/>
 
     </LinearLayout>

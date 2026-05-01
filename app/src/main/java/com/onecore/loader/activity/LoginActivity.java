@@ -88,6 +88,8 @@ public class LoginActivity extends AppCompatActivity {
     private boolean isShowingDenied = false;
     private LinearLayout deniedOverlay = null;
     private ProgressBar loadingSpinner;
+    private int themeAccent = Color.parseColor("#4DB8FF");
+    private int themeSoft = Color.parseColor("#C7D7FF");
     
     public static class PremiumBackgroundDrawable extends Drawable {
         private int angle = 0;
@@ -220,7 +222,7 @@ public class LoginActivity extends AppCompatActivity {
             // Create loading text
             loadingText = new TextView(LoginActivity.this);
             loadingText.setText(message);
-            loadingText.setTextColor(Color.parseColor("#4DB8FF"));
+            loadingText.setTextColor(themeAccent);
             loadingText.setTextSize(20);
             loadingText.setTypeface(android.graphics.Typeface.DEFAULT_BOLD);
             loadingText.setGravity(android.view.Gravity.CENTER);
@@ -229,7 +231,7 @@ public class LoginActivity extends AppCompatActivity {
             // Create loading spinner
             loadingSpinner = new ProgressBar(LoginActivity.this);
             loadingSpinner.setIndeterminate(true);
-            loadingSpinner.setIndeterminateTintList(android.content.res.ColorStateList.valueOf(Color.parseColor("#4DB8FF")));
+            loadingSpinner.setIndeterminateTintList(android.content.res.ColorStateList.valueOf(themeAccent));
             
             loadingOverlay.addView(loadingSpinner);
             loadingOverlay.addView(loadingText);
@@ -312,7 +314,7 @@ public class LoginActivity extends AppCompatActivity {
             // Create message text
             TextView messageText = new TextView(LoginActivity.this);
             messageText.setText(errorMessage != null && !errorMessage.isEmpty() ? errorMessage : "USER OR GAME NOT REGISTERED");
-            messageText.setTextColor(Color.parseColor("#4DB8FF"));
+            messageText.setTextColor(themeAccent);
             messageText.setTextSize(16);
             messageText.setGravity(android.view.Gravity.CENTER);
             messageText.setPadding(20, 10, 20, 20);
@@ -326,7 +328,7 @@ public class LoginActivity extends AppCompatActivity {
             // Get Key Button
             TextView getKeyBtn = new TextView(LoginActivity.this);
             getKeyBtn.setText("GET KEY");
-            getKeyBtn.setTextColor(Color.parseColor("#4DB8FF"));
+            getKeyBtn.setTextColor(themeAccent);
             getKeyBtn.setTextSize(14);
             getKeyBtn.setTypeface(android.graphics.Typeface.DEFAULT_BOLD);
             getKeyBtn.setPadding(40, 15, 40, 15);
@@ -340,7 +342,7 @@ public class LoginActivity extends AppCompatActivity {
             // Try Again Button
             TextView tryAgainBtn = new TextView(LoginActivity.this);
             tryAgainBtn.setText("TRY AGAIN");
-            tryAgainBtn.setTextColor(Color.parseColor("#4DB8FF"));
+            tryAgainBtn.setTextColor(themeAccent);
             tryAgainBtn.setTextSize(14);
             tryAgainBtn.setTypeface(android.graphics.Typeface.DEFAULT_BOLD);
             tryAgainBtn.setPadding(40, 15, 40, 15);
@@ -669,6 +671,7 @@ public class LoginActivity extends AppCompatActivity {
         this.particlesContainer = findViewById(R.id.particles_container);
         this.textVip1 = findViewById(R.id.textVip1);
         this.textVip2 = findViewById(R.id.textVip2);
+        applySavedTheme();
 
         Thread.setDefaultUncaughtExceptionHandler(new CrashHandler(this));
         checkAndRequestPermissions();
@@ -685,6 +688,22 @@ public class LoginActivity extends AppCompatActivity {
             TastyToast.makeText(this, "VPN detected. Please disable VPN.", TastyToast.LENGTH_LONG, TastyToast.WARNING);
             finish();
         }
+    }
+
+    private void applySavedTheme() {
+        int themeIndex = getSharedPreferences("settings", MODE_PRIVATE).getInt("loader_theme", 0);
+        switch (themeIndex) {
+            case 1: themeAccent = Color.parseColor("#9D4DFF"); themeSoft = Color.parseColor("#CEB2FF"); break;
+            case 2: themeAccent = Color.parseColor("#14E6A3"); themeSoft = Color.parseColor("#9FF8DD"); break;
+            case 3: themeAccent = Color.parseColor("#FFB347"); themeSoft = Color.parseColor("#FFD79A"); break;
+            default: themeAccent = Color.parseColor("#4DB8FF"); themeSoft = Color.parseColor("#C7D7FF"); break;
+        }
+        textVip1.setTextColor(themeAccent);
+        textVip2.setTextColor(themeAccent);
+        TextView action = findViewById(R.id.btnSignIn);
+        if (action != null) action.setTextColor(themeAccent);
+        TextView link = findViewById(R.id.telegram);
+        if (link != null) link.setTextColor(themeAccent);
     }
     
     private void hideSystemUI() {

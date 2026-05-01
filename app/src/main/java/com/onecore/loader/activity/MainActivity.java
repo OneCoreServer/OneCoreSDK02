@@ -94,8 +94,8 @@ public class MainActivity extends Activity {
         
         rootView = findViewById(R.id.main_root);
 
-        View themeButton = findViewById(R.id.btn_theme);
-        themeButton.setOnClickListener(v -> showThemePicker());
+        View settingsButton = findViewById(R.id.btn_settings);
+        settingsButton.setOnClickListener(v -> showThemePicker());
 
         selectedGamePkg = GAME_LIST_PKG[0];
         gameType = 5;
@@ -192,6 +192,7 @@ public class MainActivity extends Activity {
         tintText(R.id.tv_m, accent);
         tintText(R.id.tv_s, accent);
         tintText(R.id.IndiaVersion, accentSoft);
+        tintText(R.id.tv_welcome, accentSoft);
         tintText(R.id.tv_announcement, accent);
         tintText(R.id.tv_announcement2, accentSoft);
         tintButtonBackground(R.id.installIndia, accent);

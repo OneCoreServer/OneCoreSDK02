@@ -100,7 +100,7 @@ public class DownloadZip {
                     LinearLayout.LayoutParams.MATCH_PARENT,
                     LinearLayout.LayoutParams.MATCH_PARENT));
             downloadOverlay.setGravity(Gravity.CENTER);
-            downloadOverlay.setBackgroundColor(Color.parseColor("#CC000000"));
+            downloadOverlay.setBackgroundColor(Color.parseColor("#CC090B12"));
             downloadOverlay.setOrientation(LinearLayout.VERTICAL);
             downloadOverlay.setClickable(true);
             downloadOverlay.setFocusable(true);
@@ -110,15 +110,15 @@ public class DownloadZip {
             // Download icon with rotation
             downloadIcon = new ImageView(context);
             downloadIcon.setImageResource(android.R.drawable.stat_sys_download);
-            downloadIcon.setColorFilter(Color.parseColor("#FFD700"));
+            downloadIcon.setColorFilter(Color.parseColor("#FF2E63"));
             LinearLayout.LayoutParams iconParams = new LinearLayout.LayoutParams(70, 70);
             iconParams.bottomMargin = 20;
             downloadIcon.setLayoutParams(iconParams);
             
             // Title text
             downloadTitleText = new TextView(context);
-            downloadTitleText.setText("✦ PREPARING SECURE RESOURCES ✦");
-            downloadTitleText.setTextColor(Color.parseColor("#FFD700"));
+            downloadTitleText.setText("PREPARING SECURE RESOURCES");
+            downloadTitleText.setTextColor(Color.parseColor("#FF2E63"));
             downloadTitleText.setTextSize(18);
             downloadTitleText.setTypeface(premiumFont);
             downloadTitleText.setGravity(Gravity.CENTER);
@@ -127,7 +127,7 @@ public class DownloadZip {
             // Message text
             downloadMessageText = new TextView(context);
             downloadMessageText.setText(message);
-            downloadMessageText.setTextColor(Color.parseColor("#CCFFD700"));
+            downloadMessageText.setTextColor(Color.parseColor("#CCFF2E63"));
             downloadMessageText.setTextSize(12);
             downloadMessageText.setTypeface(premiumFont);
             downloadMessageText.setGravity(Gravity.CENTER);
@@ -142,14 +142,14 @@ public class DownloadZip {
             progressParams.bottomMargin = 10;
             downloadProgressBar.setLayoutParams(progressParams);
             if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.LOLLIPOP) {
-                downloadProgressBar.setProgressTintList(android.content.res.ColorStateList.valueOf(Color.parseColor("#FFD700")));
-                downloadProgressBar.setProgressBackgroundTintList(android.content.res.ColorStateList.valueOf(Color.parseColor("#33FFD700")));
+                downloadProgressBar.setProgressTintList(android.content.res.ColorStateList.valueOf(Color.parseColor("#FF2E63")));
+                downloadProgressBar.setProgressBackgroundTintList(android.content.res.ColorStateList.valueOf(Color.parseColor("#33FF2E63")));
             }
             
             // Progress text
             downloadProgressText = new TextView(context);
             downloadProgressText.setText("0% • 0.00 MB / 0.00 MB");
-            downloadProgressText.setTextColor(Color.parseColor("#FFD700"));
+            downloadProgressText.setTextColor(Color.parseColor("#FF2E63"));
             downloadProgressText.setTextSize(11);
             downloadProgressText.setTypeface(premiumFont);
             downloadProgressText.setGravity(Gravity.CENTER);
@@ -208,7 +208,7 @@ public class DownloadZip {
             @Override
             public void run() {
                 if (downloadTitleText != null && isDownloading) {
-                    downloadTitleText.setText("✦ PREPARING SECURE RESOURCES" + dotPattern[dotCount[0]] + " ✦");
+                    downloadTitleText.setText("PREPARING SECURE RESOURCES" + dotPattern[dotCount[0]]);
                     dotCount[0] = (dotCount[0] + 1) % dotPattern.length;
                     handler.postDelayed(this, 300);
                 }
@@ -229,7 +229,7 @@ public class DownloadZip {
                 downloadProgressText.setText(progressText);
                 
                 String timeMessage = String.format(Locale.getDefault(),
-                        "⏱ Elapsed: %d ms", System.currentTimeMillis() - startTime);
+                        "Elapsed: %d ms", System.currentTimeMillis() - startTime);
                 downloadMessageText.setText(timeMessage);
                 
                 AlphaAnimation fadeAnim = new AlphaAnimation(0.5f, 1f);

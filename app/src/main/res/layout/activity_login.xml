@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout
-    android:background="@drawable/gradient_black_yellow"
+    android:background="#090B12"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:layoutDirection="locale"
@@ -59,18 +59,18 @@
                 <TextView
                     android:textSize="28.0sp"
                     android:textStyle="bold"
-                    android:textColor="#FFD700"
+                    android:textColor="#FF2E63"
                     android:id="@+id/textVip1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="ONECORE "
+                    android:text="OneCore "
                     android:fontFamily="@font/acme"
                     android:letterSpacing="0.05" />
                     
                 <TextView
                     android:textSize="28.0sp"
                     android:textStyle="bold"
-                    android:textColor="#FFA500"
+                    android:textColor="#FF2E63"
                     android:id="@+id/textVip2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -103,7 +103,7 @@
             <!-- Label - No Gap -->
             <TextView
                 android:textSize="14.0sp"
-                android:textColor="#FFD700"
+                android:textColor="#FF2E63"
                 android:gravity="center"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -142,7 +142,7 @@
                     
                 <EditText
                     android:textColor="#FFFFFF"
-                    android:textColorHint="#FFFFFF"
+                    android:textColorHint="#88FFFFFF"
                     android:gravity="center"
                     android:id="@+id/textUsername"
                     android:background="@drawable/transparent_code"
@@ -173,14 +173,14 @@
                 android:layout_marginTop="15.0dip"
                 android:layout_marginStart="30.0dip"
                 android:layout_marginEnd="30.0dip"
-                app:cardBackgroundColor="#FFD700"
+                app:cardBackgroundColor="#121722"
                 app:cardCornerRadius="22.0dip"
                 app:cardElevation="6dp">
                 
                 <TextView
                     android:textSize="18.0sp"
                     android:textStyle="bold"
-                    android:textColor="#000000"
+                    android:textColor="#FF2E63"
                     android:gravity="center"
                     android:id="@+id/btnSignIn"
                     android:layout_width="fill_parent"
@@ -201,7 +201,7 @@
                 
                 <TextView
                     android:textSize="12.0sp"
-                    android:textColor="#AAFFD700"
+                    android:textColor="#AAFFFFFF"
                     android:gravity="center"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -211,7 +211,7 @@
                 <TextView
                     android:textSize="12.0sp"
                     android:textStyle="bold"
-                    android:textColor="#FFD700"
+                    android:textColor="#FF2E63"
                     android:gravity="center"
                     android:id="@+id/telegram"
                     android:clickable="true"

@@ -302,7 +302,7 @@ public class LoginActivity extends AppCompatActivity {
             
             // Create denied text
             TextView deniedText = new TextView(LoginActivity.this);
-            deniedText.setText("✗ ACCESS DENIED ✗");
+            deniedText.setText("ACCESS DENIED");
             deniedText.setTextColor(Color.parseColor("#FF4444"));
             deniedText.setTextSize(28);
             deniedText.setTypeface(android.graphics.Typeface.DEFAULT_BOLD);
@@ -679,7 +679,7 @@ public class LoginActivity extends AppCompatActivity {
         hideSystemUI();
 
         if (!isSignatureValid()) {
-            TastyToast.makeText(this, "✗ Invalid Signature! ✗", TastyToast.LENGTH_LONG, TastyToast.ERROR);
+            TastyToast.makeText(this, "Invalid signature", TastyToast.LENGTH_LONG, TastyToast.ERROR);
             finish();
         } else if (isVpnActive()) {
             TastyToast.makeText(this, "VPN detected. Please disable VPN.", TastyToast.LENGTH_LONG, TastyToast.WARNING);

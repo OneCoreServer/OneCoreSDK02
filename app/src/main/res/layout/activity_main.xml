@@ -33,7 +33,7 @@
 
         <TextView
             android:textSize="20.0sp"
-            android:textColor="#ff2e63"
+            android:textColor="#35F3FF"
             android:gravity="center"
             android:layout_gravity="center"
             android:id="@+id/PremiumFileManager"
@@ -42,7 +42,7 @@
             android:text="Your Premium Subscription Ends On"
             android:fontFamily="@font/acme"
             android:letterSpacing="0.05"
-            android:shadowColor="#33FFD700"
+            android:shadowColor="#3335F3FF"
             android:shadowDx="1"
             android:shadowDy="1"
             android:shadowRadius="3"/>
@@ -65,7 +65,7 @@
 
                 <TextView
                     android:textSize="28.0sp"
-                    android:textColor="#ff2e63"
+                    android:textColor="#35F3FF"
                     android:gravity="center"
                     android:id="@+id/tv_d"
                     android:layout_width="fill_parent"
@@ -77,7 +77,7 @@
 
                 <TextView
                     android:textSize="10.0sp"
-                    android:textColor="#ffb0bec5"
+                    android:textColor="#9AB4FF"
                     android:gravity="center"
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
@@ -90,7 +90,7 @@
             <TextView
                 android:textSize="28.0sp"
                 android:textStyle="bold"
-                android:textColor="#ff2e63"
+                android:textColor="#35F3FF"
                 android:padding="2.0dip"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -106,7 +106,7 @@
 
                 <TextView
                     android:textSize="28.0sp"
-                    android:textColor="#ff2e63"
+                    android:textColor="#35F3FF"
                     android:gravity="center"
                     android:id="@+id/tv_h"
                     android:layout_width="fill_parent"
@@ -118,7 +118,7 @@
 
                 <TextView
                     android:textSize="10.0sp"
-                    android:textColor="#ffb0bec5"
+                    android:textColor="#9AB4FF"
                     android:gravity="center"
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
@@ -131,7 +131,7 @@
             <TextView
                 android:textSize="28.0sp"
                 android:textStyle="bold"
-                android:textColor="#ff2e63"
+                android:textColor="#35F3FF"
                 android:padding="2.0dip"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -147,7 +147,7 @@
 
                 <TextView
                     android:textSize="28.0sp"
-                    android:textColor="#ff2e63"
+                    android:textColor="#35F3FF"
                     android:gravity="center"
                     android:id="@+id/tv_m"
                     android:layout_width="fill_parent"
@@ -159,7 +159,7 @@
 
                 <TextView
                     android:textSize="10.0sp"
-                    android:textColor="#ffb0bec5"
+                    android:textColor="#9AB4FF"
                     android:gravity="center"
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
@@ -172,7 +172,7 @@
             <TextView
                 android:textSize="28.0sp"
                 android:textStyle="bold"
-                android:textColor="#ff2e63"
+                android:textColor="#35F3FF"
                 android:padding="2.0dip"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -188,7 +188,7 @@
 
                 <TextView
                     android:textSize="28.0sp"
-                    android:textColor="#ff2e63"
+                    android:textColor="#35F3FF"
                     android:gravity="center"
                     android:id="@+id/tv_s"
                     android:layout_width="fill_parent"
@@ -200,7 +200,7 @@
 
                 <TextView
                     android:textSize="10.0sp"
-                    android:textColor="#ffb0bec5"
+                    android:textColor="#9AB4FF"
                     android:gravity="center"
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
@@ -268,7 +268,7 @@
 
             <TextView
                 android:textSize="11.0sp"
-                android:textColor="#ffb0bec5"
+                android:textColor="#9AB4FF"
                 android:gravity="center"
                 android:id="@+id/IndiaVersion"
                 android:layout_width="wrap_content"
@@ -279,7 +279,7 @@
 
             <TextView
                 android:textSize="13.0sp"
-                android:textColor="#ff2e63"
+                android:textColor="#35F3FF"
                 android:gravity="center"
                 android:id="@+id/installIndia"
                 android:background="@drawable/ios_install_button"
@@ -300,7 +300,7 @@
         <TextView
             android:textSize="18.0sp"
             android:textStyle="bold"
-            android:textColor="#000000"
+            android:textColor="#DFFBFF"
             android:gravity="center"
             android:id="@+id/btn_start_game"
             android:background="@drawable/ios_start_button"
@@ -328,7 +328,7 @@
         <TextView
             android:textSize="18.0sp"
             android:textStyle="bold"
-            android:textColor="#ff2e63"
+            android:textColor="#35F3FF"
             android:gravity="center"
             android:id="@+id/tv_announcement"
             android:layout_width="fill_parent"

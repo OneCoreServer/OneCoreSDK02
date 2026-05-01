@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout
-    android:background="#090B12"
+    android:background="#070B14"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:layoutDirection="locale"
@@ -59,7 +59,7 @@
                 <TextView
                     android:textSize="28.0sp"
                     android:textStyle="bold"
-                    android:textColor="#FF2E63"
+                    android:textColor="#35F3FF"
                     android:id="@+id/textVip1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -70,7 +70,7 @@
                 <TextView
                     android:textSize="28.0sp"
                     android:textStyle="bold"
-                    android:textColor="#FF2E63"
+                    android:textColor="#35F3FF"
                     android:id="@+id/textVip2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -103,7 +103,7 @@
             <!-- Label - No Gap -->
             <TextView
                 android:textSize="14.0sp"
-                android:textColor="#FF2E63"
+                android:textColor="#35F3FF"
                 android:gravity="center"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -173,14 +173,14 @@
                 android:layout_marginTop="15.0dip"
                 android:layout_marginStart="30.0dip"
                 android:layout_marginEnd="30.0dip"
-                app:cardBackgroundColor="#121722"
+                app:cardBackgroundColor="#111827"
                 app:cardCornerRadius="22.0dip"
                 app:cardElevation="6dp">
                 
                 <TextView
                     android:textSize="18.0sp"
                     android:textStyle="bold"
-                    android:textColor="#FF2E63"
+                    android:textColor="#35F3FF"
                     android:gravity="center"
                     android:id="@+id/btnSignIn"
                     android:layout_width="fill_parent"
@@ -201,7 +201,7 @@
                 
                 <TextView
                     android:textSize="12.0sp"
-                    android:textColor="#AAFFFFFF"
+                    android:textColor="#C7D7FF"
                     android:gravity="center"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -211,7 +211,7 @@
                 <TextView
                     android:textSize="12.0sp"
                     android:textStyle="bold"
-                    android:textColor="#FF2E63"
+                    android:textColor="#35F3FF"
                     android:gravity="center"
                     android:id="@+id/telegram"
                     android:clickable="true"

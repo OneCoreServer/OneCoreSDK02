@@ -1260,6 +1260,10 @@ public class BlackBoxCore extends ClientConfiguration {
         return mClientConfiguration.isHideRoot();
     }
 
+    public boolean isHideXposed() {
+        return mClientConfiguration.isHideXposed();
+    }
+
     @Override
     public boolean isDisableFlagSecure() {
         return mClientConfiguration.isDisableFlagSecure();

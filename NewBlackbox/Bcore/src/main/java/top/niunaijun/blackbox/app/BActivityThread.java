@@ -400,6 +400,9 @@ public class BActivityThread extends IBActivityThread.Stub {
         }
 
         NativeCore.init(Build.VERSION.SDK_INT);
+        if (BlackBoxCore.get().isHideXposed()) {
+            NativeCore.hideXposed();
+        }
         assert packageContext != null;
         IOCore.get().enableRedirect(packageContext);
 

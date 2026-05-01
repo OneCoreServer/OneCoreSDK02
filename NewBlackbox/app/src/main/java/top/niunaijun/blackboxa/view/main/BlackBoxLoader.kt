@@ -262,14 +262,6 @@ class BlackBoxLoader {
                                     }
                                 }
 
-                                override fun getTargetFps(): Int {
-                                    return 120
-                                }
-
-                                override fun isLowLatencyNetworkMode(): Boolean {
-                                    return true
-                                }
-
                                 override fun isDisableFlagSecure(): Boolean {
                                     return try {
                                         mDisableFlagSecure

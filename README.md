@@ -1,11 +1,11 @@
-# ★彡 [ ↻ DYNAMIC VIP ↺ ] 彡★
+# ★彡 [ ↻ ONECORE ENGINE ↺ ] 彡★
 
 🔥 **Android Virtual Injector (Non-Root)** 🔥  
 An advanced injector to inject games and apps via Virtual Space without rooting your Android device.
 
 ---
 
-## ⚡ What's Special About This Injector?
+## ⚡ What's Special About OneCore Engine?
 - 🚀 **Supports Latest Android (9 to 17)**
 - 🌟 **Clean, Modular, Easy-to-maintain Code**
 - 🎯 **No Root Required**
@@ -39,9 +39,9 @@ An advanced injector to inject games and apps via Virtual Space without rooting 
 ---
 
 ## 🌟 Credits
-**Full Credit & Developer:**  
-✨『 ↻ **DYNAMIC VIP** ↺ 』✨  
-Creator of [NewBlackbox]()
+**Project Owner & Developer:**  
+✨『 ↻ **ONECORE ENGINE** ↺ 』✨  
+Owner Username (Telegram): **@L359D**
 
 ---
 
@@ -57,9 +57,8 @@ Not compatible with games/apps protected by advanced anti-cheat mechanisms.
 ---
 
 ## 📲 Connect & Support
-- 📢 **Telegram Channel:** [Join Here](https://t.me/DynamicOwnerTg)
-- 👤 **Telegram:** [Contact Me](https://t.me/DynamicOwnerTg)
-- 📩 **Email:** [dynamicvip007@gmail.com]()
+- 📢 **Telegram Channel:** [OneCoreEngine](https://t.me/OneCoreEngine)
+- 👤 **Telegram Owner:** [@L359D](https://t.me/L359D)
 
 ---
 
@@ -78,4 +77,4 @@ Licensed under [GPLv3](LICENSE).
 
 ---
 
-**✨彡 ↻ DYNAMIC VIP ↺ 彡✨ © 2025**
+**✨彡 ↻ ONECORE ENGINE ↺ 彡✨ © 2026**

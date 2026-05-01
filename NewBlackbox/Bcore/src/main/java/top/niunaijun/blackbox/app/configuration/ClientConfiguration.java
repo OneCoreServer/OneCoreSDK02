@@ -30,6 +30,21 @@ public abstract class ClientConfiguration {
         return false;
     }
 
+    /**
+     * Target FPS hint for virtualized apps.
+     * 0 means keep system/default behavior.
+     */
+    public int getTargetFps() {
+        return 0;
+    }
+
+    /**
+     * Enables low-latency network preference hooks where supported.
+     */
+    public boolean isLowLatencyNetworkMode() {
+        return false;
+    }
+
     public boolean isDisableFlagSecure() {
         return false;
     }

@@ -24,8 +24,6 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
-import android.widget.RadioButton;
-import android.widget.RadioGroup;
 import android.widget.TextView;
 import com.onecore.loader.floating.FloatAim;
 import com.onecore.loader.floating.FloatLogo;
@@ -60,8 +58,6 @@ public class MainActivity extends Activity {
     public static native String FixCrash();
     public String CURRENT_PACKAGE;
     private TextView installIndia, btnStartGame;
-    private RadioGroup gameSelection;
-    private RadioButton radioIndia, tvHideEsp;
     
     public static int gameType = 0;
     private boolean isGameLaunched = false;
@@ -91,65 +87,13 @@ public class MainActivity extends Activity {
         sharedPreferences = getSharedPreferences(getPackageName(), Activity.MODE_PRIVATE);
         CheckFloatViewPermission();
         
-        selectedGamePkg = "";
-        gameType = 0;
-        isIndiaSelected = false;
+        selectedGamePkg = GAME_LIST_PKG[0];
+        gameType = 5;
+        isIndiaSelected = true;
         
         // Find Views
         installIndia = findViewById(R.id.installIndia);
         btnStartGame = findViewById(R.id.btn_start_game);
-        gameSelection = findViewById(R.id.radio_group_games);
-        radioIndia = findViewById(R.id.radio_india);
-        tvHideEsp = findViewById(R.id.tv_hide_esp);
-
-        // Make sure radio button is unchecked initially
-        if (radioIndia != null) {
-            radioIndia.setChecked(false);
-        }
-        
-        // Set RadioButton click listener
-        if (radioIndia != null) {
-            radioIndia.setOnClickListener(v -> {
-                boolean isChecked = radioIndia.isChecked();
-                
-                if (isChecked) {
-                    selectedGamePkg = GAME_LIST_PKG[0];
-                    gameType = 5;
-                    isIndiaSelected = true;
-                    BoxApplication.get().showToastWithImage("✓ India Game Selected ✓", TastyToast.SUCCESS);
-                    
-                    radioIndia.animate()
-                        .scaleX(1.1f)
-                        .scaleY(1.1f)
-                        .setDuration(200)
-                        .withEndAction(() -> {
-                            radioIndia.animate()
-                                .scaleX(1f)
-                                .scaleY(1f)
-                                .setDuration(200)
-                                .start();
-                        })
-                        .start();
-                } else {
-                    selectedGamePkg = "";
-                    gameType = 0;
-                    isIndiaSelected = false;
-                    BoxApplication.get().showToastWithImage("Game deselected", TastyToast.INFO);
-                }
-            });
-        }
-        
-        // RadioGroup listener
-        if (gameSelection != null) {
-            gameSelection.setOnCheckedChangeListener((group, checkedId) -> {
-                if (checkedId == R.id.radio_india) {
-                    selectedGamePkg = GAME_LIST_PKG[0];
-                    gameType = 5;
-                    isIndiaSelected = true;
-                    BoxApplication.get().showToastWithImage("✓ India Game Selected ✓", TastyToast.SUCCESS);
-                }
-            });
-        }
         
         // Update Install Button State
         updateButtonState(0, installIndia);
@@ -159,25 +103,6 @@ public class MainActivity extends Activity {
 
         // Start Game button click listener
         btnStartGame.setOnClickListener(v -> {
-            if (!isIndiaSelected || selectedGamePkg == null || selectedGamePkg.isEmpty()) {
-                BoxApplication.get().showToastWithImage("⚠ Please select India game first! ⚠", TastyToast.WARNING);
-                if (radioIndia != null) {
-                    radioIndia.animate()
-                        .scaleX(1.2f)
-                        .scaleY(1.2f)
-                        .setDuration(300)
-                        .withEndAction(() -> {
-                            radioIndia.animate()
-                                .scaleX(1f)
-                                .scaleY(1f)
-                                .setDuration(300)
-                                .start();
-                        })
-                        .start();
-                }
-                return;
-            }
-
             if (!ApkEnv.getInstance().isInstalled(selectedGamePkg)) {
                 BoxApplication.get().showToastWithImage(Constants.GAME_NOT_INSTALL, TastyToast.ERROR);
                 return;
@@ -186,17 +111,6 @@ public class MainActivity extends Activity {
             do_Lib_And_Run(selectedGamePkg);
             startPatcher();
         });
-        
-        // Hide ESP option click listener
-        if (tvHideEsp != null) {
-            tvHideEsp.setOnClickListener(v -> {
-                if (tvHideEsp.isChecked()) {
-                    BoxApplication.get().showToastWithImage("🔒 ESP Hidden Mode Activated", TastyToast.SUCCESS);
-                } else {
-                    BoxApplication.get().showToastWithImage("👁️ ESP Visible Mode", TastyToast.INFO);
-                }
-            });
-        }
         
         // Start download - DownloadZip will show its own animation and dialog
         // No need to show any toast here as DownloadZip handles it

@@ -224,30 +224,15 @@
         android:layout_marginTop="15.0dip"
         android:padding="12dp">
 
-        <!-- REMOVED android:checkedButton from RadioGroup -->
-        <RadioGroup
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:gravity="center"
-            android:orientation="horizontal"
-            android:id="@+id/radio_group_games"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content">
-
-            <RadioButton
-                android:textColor="#ffffd700"
-                android:id="@+id/radio_india"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="India"
-                android:textSize="18sp"
-                android:fontFamily="@font/acme"
-                android:layout_marginStart="10.0dip"
-                android:layout_marginEnd="10.0dip"
-                android:buttonTint="#ffffd700"
-                android:clickable="true"
-                android:focusable="true"
-                android:checked="false"/>
-
-        </RadioGroup>
+            android:text="Region: India (Always Active)"
+            android:textColor="#ffffd700"
+            android:textSize="16sp"
+            android:fontFamily="@font/acme"
+            android:textStyle="bold" />
 
         <LinearLayout
             android:gravity="center"
@@ -256,17 +241,14 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp">
 
-            <RadioButton
-                android:textSize="13.0sp"
-                android:textStyle="bold"
-                android:textColor="#ff00ffaa"
-                android:gravity="center_vertical"
-                android:id="@+id/tv_hide_esp"
+            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Hide ESP While Screen Recording"
+                android:text="ESP visibility control is managed automatically."
+                android:textColor="#ff00ffaa"
+                android:textSize="13sp"
                 android:fontFamily="@font/acme"
-                android:buttonTint="#ff00ffaa"/>
+                android:textStyle="bold" />
 
     <!-- Game Info Card -->
     <LinearLayout

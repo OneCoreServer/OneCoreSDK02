@@ -133,13 +133,19 @@ public class IOCore {
 
             if (BlackBoxCore.getContext().getExternalCacheDir() != null && context.getExternalCacheDir() != null) {
                 File external = BEnvironment.getExternalUserDir(BlackBoxCore.getUserId());
+                String sdcardPath = String.format("/storage/emulated/%d", systemUserId);
+                String androidDir = sdcardPath + "/Android";
 
                 
                 rule.put("/sdcard", external.getAbsolutePath());
-                rule.put(String.format("/storage/emulated/%d", systemUserId), external.getAbsolutePath());
+                rule.put(sdcardPath, external.getAbsolutePath());
+                rule.put("/sdcard/Android/obb", external.getAbsolutePath() + "/Android/obb");
+                rule.put(androidDir + "/obb", external.getAbsolutePath() + "/Android/obb");
+                rule.put("/sdcard/Android/data", external.getAbsolutePath() + "/Android/data");
+                rule.put(androidDir + "/data", external.getAbsolutePath() + "/Android/data");
 
                 blackRule.add("/sdcard/Pictures");
-                blackRule.add(String.format("/storage/emulated/%d/Pictures", systemUserId));
+                blackRule.add(sdcardPath + "/Pictures");
             }
             if (BlackBoxCore.get().isHideRoot()) {
                 hideRoot(rule);

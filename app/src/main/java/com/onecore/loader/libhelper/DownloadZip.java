@@ -10,6 +10,7 @@ import android.view.Gravity;
 import android.view.View;
 import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
+import android.view.animation.AnimationSet;
 import android.view.animation.LinearInterpolator;
 import android.view.animation.RotateAnimation;
 import android.view.animation.ScaleAnimation;
@@ -109,15 +110,15 @@ public class DownloadZip {
             // Download icon with rotation
             downloadIcon = new ImageView(context);
             downloadIcon.setImageResource(android.R.drawable.stat_sys_download);
-            downloadIcon.setColorFilter(Color.parseColor("#FFD700"));
+            downloadIcon.setColorFilter(Color.parseColor("#4DB8FF"));
             LinearLayout.LayoutParams iconParams = new LinearLayout.LayoutParams(70, 70);
             iconParams.bottomMargin = 20;
             downloadIcon.setLayoutParams(iconParams);
             
             // Title text
             downloadTitleText = new TextView(context);
-            downloadTitleText.setText("✦ DOWNLOADING FILES ✦");
-            downloadTitleText.setTextColor(Color.parseColor("#FFD700"));
+            downloadTitleText.setText("SYNCING BATTLE RESOURCES");
+            downloadTitleText.setTextColor(Color.parseColor("#4DB8FF"));
             downloadTitleText.setTextSize(18);
             downloadTitleText.setTypeface(premiumFont);
             downloadTitleText.setGravity(Gravity.CENTER);
@@ -126,7 +127,7 @@ public class DownloadZip {
             // Message text
             downloadMessageText = new TextView(context);
             downloadMessageText.setText(message);
-            downloadMessageText.setTextColor(Color.parseColor("#CCFFD700"));
+            downloadMessageText.setTextColor(Color.parseColor("#B34DB8FF"));
             downloadMessageText.setTextSize(12);
             downloadMessageText.setTypeface(premiumFont);
             downloadMessageText.setGravity(Gravity.CENTER);
@@ -141,14 +142,14 @@ public class DownloadZip {
             progressParams.bottomMargin = 10;
             downloadProgressBar.setLayoutParams(progressParams);
             if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.LOLLIPOP) {
-                downloadProgressBar.setProgressTintList(android.content.res.ColorStateList.valueOf(Color.parseColor("#FFD700")));
-                downloadProgressBar.setProgressBackgroundTintList(android.content.res.ColorStateList.valueOf(Color.parseColor("#33FFD700")));
+                downloadProgressBar.setProgressTintList(android.content.res.ColorStateList.valueOf(Color.parseColor("#4DB8FF")));
+                downloadProgressBar.setProgressBackgroundTintList(android.content.res.ColorStateList.valueOf(Color.parseColor("#334DB8FF")));
             }
             
             // Progress text
             downloadProgressText = new TextView(context);
             downloadProgressText.setText("0% • 0.00 MB / 0.00 MB");
-            downloadProgressText.setTextColor(Color.parseColor("#FFD700"));
+            downloadProgressText.setTextColor(Color.parseColor("#4DB8FF"));
             downloadProgressText.setTextSize(11);
             downloadProgressText.setTypeface(premiumFont);
             downloadProgressText.setGravity(Gravity.CENTER);
@@ -167,20 +168,29 @@ public class DownloadZip {
             downloadOverlay.animate().alpha(1f).setDuration(300).start();
             
             // Rotate icon
-            RotateAnimation rotateAnim = new RotateAnimation(0f, 360f, 
-                    Animation.RELATIVE_TO_SELF, 0.5f, 
+            RotateAnimation rotateAnim = new RotateAnimation(0f, 360f,
+                    Animation.RELATIVE_TO_SELF, 0.5f,
                     Animation.RELATIVE_TO_SELF, 0.5f);
-            rotateAnim.setDuration(1500);
+            rotateAnim.setDuration(820);
             rotateAnim.setRepeatCount(Animation.INFINITE);
             rotateAnim.setInterpolator(new LinearInterpolator());
-            downloadIcon.startAnimation(rotateAnim);
+
+            AlphaAnimation iconGlow = new AlphaAnimation(0.45f, 1f);
+            iconGlow.setDuration(520);
+            iconGlow.setRepeatCount(Animation.INFINITE);
+            iconGlow.setRepeatMode(Animation.REVERSE);
+
+            AnimationSet iconAnimation = new AnimationSet(true);
+            iconAnimation.addAnimation(rotateAnim);
+            iconAnimation.addAnimation(iconGlow);
+            downloadIcon.startAnimation(iconAnimation);
             
             // Pulse text
             ScaleAnimation scaleAnim = new ScaleAnimation(
                     1f, 1.05f, 1f, 1.05f,
                     Animation.RELATIVE_TO_SELF, 0.5f,
                     Animation.RELATIVE_TO_SELF, 0.5f);
-            scaleAnim.setDuration(800);
+            scaleAnim.setDuration(460);
             scaleAnim.setRepeatCount(Animation.INFINITE);
             scaleAnim.setRepeatMode(Animation.REVERSE);
             downloadTitleText.startAnimation(scaleAnim);
@@ -198,9 +208,9 @@ public class DownloadZip {
             @Override
             public void run() {
                 if (downloadTitleText != null && isDownloading) {
-                    downloadTitleText.setText("✦ DOWNLOADING FILES" + dotPattern[dotCount[0]] + " ✦");
+                    downloadTitleText.setText("SYNCING BATTLE RESOURCES" + dotPattern[dotCount[0]]);
                     dotCount[0] = (dotCount[0] + 1) % dotPattern.length;
-                    handler.postDelayed(this, 400);
+                    handler.postDelayed(this, 220);
                 }
             }
         };
@@ -219,7 +229,7 @@ public class DownloadZip {
                 downloadProgressText.setText(progressText);
                 
                 String timeMessage = String.format(Locale.getDefault(),
-                        "⏱️ Time: %d ms", System.currentTimeMillis() - startTime);
+                        "Telemetry: %d ms elapsed", System.currentTimeMillis() - startTime);
                 downloadMessageText.setText(timeMessage);
                 
                 AlphaAnimation fadeAnim = new AlphaAnimation(0.5f, 1f);
@@ -265,20 +275,20 @@ public class DownloadZip {
             LinearLayout dialogLayout = new LinearLayout(context);
             dialogLayout.setOrientation(LinearLayout.VERTICAL);
             dialogLayout.setPadding(40, 40, 40, 40);
-            dialogLayout.setBackgroundColor(Color.parseColor("#1A1A1A"));
+            dialogLayout.setBackgroundColor(Color.parseColor("#111111"));
             
             android.graphics.drawable.GradientDrawable bgShape = new android.graphics.drawable.GradientDrawable();
             bgShape.setShape(android.graphics.drawable.GradientDrawable.RECTANGLE);
             bgShape.setCornerRadius(16);
-            bgShape.setColor(Color.parseColor("#1A1A1A"));
+            bgShape.setColor(Color.parseColor("#111111"));
             dialogLayout.setBackground(bgShape);
             
             TextView titleText = new TextView(context);
-            titleText.setText(success ? "✓ SUCCESS ✓" : "✗ FAILED ✗");
+            titleText.setText(success ? "SUCCESS" : "FAILED");
             titleText.setTextSize(20);
             titleText.setTypeface(getPremiumFont(), Typeface.BOLD);
             titleText.setGravity(Gravity.CENTER);
-            titleText.setTextColor(success ? Color.parseColor("#FFD700") : Color.parseColor("#FF4444"));
+            titleText.setTextColor(success ? Color.parseColor("#4DB8FF") : Color.parseColor("#FF4444"));
             titleText.setPadding(0, 0, 0, 20);
             
             TextView messageText = new TextView(context);
@@ -294,7 +304,7 @@ public class DownloadZip {
             buttonText.setTextSize(16);
             buttonText.setTypeface(getPremiumFont(), Typeface.BOLD);
             buttonText.setGravity(Gravity.CENTER);
-            buttonText.setTextColor(Color.parseColor("#000000"));
+            buttonText.setTextColor(Color.parseColor("#DFFBFF"));
             buttonText.setPadding(50, 15, 50, 15);
             buttonText.setClickable(true);
             buttonText.setFocusable(true);
@@ -302,7 +312,7 @@ public class DownloadZip {
             android.graphics.drawable.GradientDrawable buttonShape = new android.graphics.drawable.GradientDrawable();
             buttonShape.setShape(android.graphics.drawable.GradientDrawable.RECTANGLE);
             buttonShape.setCornerRadius(25);
-            buttonShape.setColor(Color.parseColor("#FFD700"));
+            buttonShape.setColor(Color.parseColor("#4DB8FF"));
             buttonText.setBackground(buttonShape);
             
             dialogLayout.addView(titleText);
@@ -328,7 +338,7 @@ public class DownloadZip {
 
     public void startDownload(String downloadUrl, DownloadCallback callback) {
         // Show download animation
-        showDownloadAnimation("Initializing download...");
+        showDownloadAnimation("Establishing secure transfer channel...");
         
         if (callback != null) {
             callback.onStart();
@@ -342,7 +352,7 @@ public class DownloadZip {
 
             handler.post(() -> {
                 if (success) {
-                    updateDownloadProgress(100, "Extracting files...", downloadedBytes, downloadedBytes);
+                    updateDownloadProgress(100, "Deploying optimized assets...", downloadedBytes, downloadedBytes);
                     
                     String zipPath = new File(context.getFilesDir(), ZIP_FILE_NAME).getAbsolutePath();
                     String outputDir = context.getFilesDir().getAbsolutePath();
@@ -352,19 +362,19 @@ public class DownloadZip {
                         moveSoFiles(new File(outputDir, "loader"));
                         new File(context.getFilesDir(), ZIP_FILE_NAME).delete();
                         
-                        hideDownloadAnimation(true, "✓ Download Complete!\n✓ Files extracted successfully!");
+                        hideDownloadAnimation(true, "Resource deployment complete.");
                         
                         if (callback != null) {
                             callback.onSuccess();
                         }
                     } else {
-                        hideDownloadAnimation(false, "✗ Failed to extract ZIP file");
+                        hideDownloadAnimation(false, "Failed to extract ZIP file");
                         if (callback != null) {
                             callback.onError("Failed to extract ZIP");
                         }
                     }
                 } else {
-                    hideDownloadAnimation(false, "✗ Download failed!\n✗ Check your internet connection");
+                    hideDownloadAnimation(false, "Download failed. Check your internet connection.");
                     if (callback != null) {
                         callback.onError("Download failed");
                     }

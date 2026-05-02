@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout
-    android:background="@drawable/gradient_black_yellow"
+    android:background="#000000"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:layoutDirection="locale"
@@ -43,7 +43,7 @@
                     android:layout_gravity="center"
                     android:layout_width="100.0dip"
                     android:layout_height="100.0dip"
-                    android:src="@drawable/ic_launcher"
+                    android:src="@drawable/ic_new_update"
                     android:contentDescription="VIP LOGO"
                     android:alpha="0.95" />
                     
@@ -59,22 +59,22 @@
                 <TextView
                     android:textSize="28.0sp"
                     android:textStyle="bold"
-                    android:textColor="#FFD700"
+                    android:textColor="#4DB8FF"
                     android:id="@+id/textVip1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="ONECORE "
+                    android:text="OneCore "
                     android:fontFamily="@font/acme"
                     android:letterSpacing="0.05" />
                     
                 <TextView
                     android:textSize="28.0sp"
                     android:textStyle="bold"
-                    android:textColor="#FFA500"
+                    android:textColor="#4DB8FF"
                     android:id="@+id/textVip2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="ENGINE LOADER"
+                    android:text="ENGINE"
                     android:fontFamily="@font/acme"
                     android:letterSpacing="0.05" />
                     
@@ -86,7 +86,7 @@
                 android:textColor="#FFFFFF"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Premium Access Loader"
+                android:text="Elite Access Gateway"
                 android:fontFamily="@font/montserratsemibold"
                 android:letterSpacing="0.08" />
                 
@@ -103,11 +103,11 @@
             <!-- Label - No Gap -->
             <TextView
                 android:textSize="14.0sp"
-                android:textColor="#FFD700"
+                android:textColor="#4DB8FF"
                 android:gravity="center"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="PLEASE ENTER YOUR LICENSE KEY 🗝️"
+                android:text="ENTER YOUR PREMIUM LICENSE KEY"
                 android:fontFamily="@font/montserratsemibold"
                 android:letterSpacing="0.08"
                 android:layout_marginBottom="10.0dip" />
@@ -142,7 +142,7 @@
                     
                 <EditText
                     android:textColor="#FFFFFF"
-                    android:textColorHint="#FFFFFF"
+                    android:textColorHint="#88FFFFFF"
                     android:gravity="center"
                     android:id="@+id/textUsername"
                     android:background="@drawable/transparent_code"
@@ -153,7 +153,7 @@
                     android:inputType="textPassword"
                     android:textCursorDrawable="@drawable/premium_cursor"
                     android:fontFamily="@font/poppinsregular"
-                    android:hint="ENTER KEY HERE ☺️"
+                    android:hint="Paste your access key"
                     android:textSize="14sp" />
                     
                 <ImageView
@@ -173,19 +173,19 @@
                 android:layout_marginTop="15.0dip"
                 android:layout_marginStart="30.0dip"
                 android:layout_marginEnd="30.0dip"
-                app:cardBackgroundColor="#FFD700"
+                app:cardBackgroundColor="#111827"
                 app:cardCornerRadius="22.0dip"
                 app:cardElevation="6dp">
                 
                 <TextView
                     android:textSize="18.0sp"
                     android:textStyle="bold"
-                    android:textColor="#000000"
+                    android:textColor="#4DB8FF"
                     android:gravity="center"
                     android:id="@+id/btnSignIn"
                     android:layout_width="fill_parent"
                     android:layout_height="fill_parent"
-                    android:text="LOGIN HERE"
+                    android:text="ACTIVATE ACCESS"
                     android:fontFamily="@font/acme"
                     android:letterSpacing="0.1" />
                     
@@ -201,23 +201,23 @@
                 
                 <TextView
                     android:textSize="12.0sp"
-                    android:textColor="#AAFFD700"
+                    android:textColor="#C7D7FF"
                     android:gravity="center"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Don't have key?"
+                    android:text="Need a license key?"
                     android:fontFamily="@font/poppinsregular" />
                     
                 <TextView
                     android:textSize="12.0sp"
                     android:textStyle="bold"
-                    android:textColor="#FFD700"
+                    android:textColor="#4DB8FF"
                     android:gravity="center"
                     android:id="@+id/telegram"
                     android:clickable="true"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="CLICK HERE"
+                    android:text="GET ACCESS"
                     android:fontFamily="@font/poppinsregular"
                     android:layout_marginStart="5.0dip" />
                     

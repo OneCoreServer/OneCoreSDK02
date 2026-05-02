@@ -23,7 +23,7 @@
             <ImageView
                  android:layout_height="50dp"
                  android:layout_width="50dp"
-                 android:src="@drawable/ic_launcher"
+                 android:src="@drawable/ic_new_update"
                  tools:ignore="ContentDescription" />
 
         </RelativeLayout>

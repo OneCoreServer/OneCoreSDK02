@@ -9,6 +9,10 @@ public abstract class ClientConfiguration {
         return false;
     }
 
+    public boolean isHideXposed() {
+        return false;
+    }
+
 
 
     public abstract String getHostPackageName();
@@ -23,6 +27,21 @@ public abstract class ClientConfiguration {
 
     
     public boolean isUseVpnNetwork() {
+        return false;
+    }
+
+    /**
+     * Target FPS hint for virtualized apps.
+     * 0 means keep system/default behavior.
+     */
+    public int getTargetFps() {
+        return 0;
+    }
+
+    /**
+     * Enables low-latency network preference hooks where supported.
+     */
+    public boolean isLowLatencyNetworkMode() {
         return false;
     }
 

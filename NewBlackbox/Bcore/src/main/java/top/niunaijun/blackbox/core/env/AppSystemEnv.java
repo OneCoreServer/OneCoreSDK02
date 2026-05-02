@@ -13,6 +13,7 @@ import top.niunaijun.blackbox.utils.compat.BuildCompat;
 public class AppSystemEnv {
     private static final List<String> sSystemPackages = new ArrayList<>();
     private static final List<String> sSuPackages = new ArrayList<>();
+    private static final List<String> sXposedPackages = new ArrayList<>();
 
     private static final List<String> sPreInstallPackages = new ArrayList<>();
 
@@ -45,6 +46,11 @@ public class AppSystemEnv {
         sSuPackages.add("com.thirdparty.superuser");
         sSuPackages.add("com.yellowes.su");
 
+        sXposedPackages.add("de.robv.android.xposed.installer");
+        sXposedPackages.add("io.va.exposed");
+        sXposedPackages.add("me.weishu.exp");
+        sXposedPackages.add("com.saurik.substrate");
+
 
 
         
@@ -65,6 +71,9 @@ public class AppSystemEnv {
 
     public static boolean isBlackPackage(String packageName) {
         if (BlackBoxCore.get().isHideRoot() && sSuPackages.contains(packageName)) {
+            return true;
+        }
+        if (BlackBoxCore.get().isHideXposed() && sXposedPackages.contains(packageName)) {
             return true;
         }
         return false;

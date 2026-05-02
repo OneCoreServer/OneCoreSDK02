@@ -24,14 +24,13 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
-import android.widget.RadioButton;
-import android.widget.RadioGroup;
 import android.widget.TextView;
 import com.onecore.loader.floating.FloatAim;
 import com.onecore.loader.floating.FloatLogo;
 import com.onecore.loader.floating.Overlay;
 import com.onecore.loader.libhelper.DownloadZip;
 import com.onecore.loader.utils.CrashHandler;
+import com.onecore.loader.utils.Prefs;
 import com.Jagdish.tastytoast.TastyToast;
 import com.onecore.loader.BoxApplication;
 import com.onecore.loader.libhelper.ApkEnv;
@@ -60,8 +59,9 @@ public class MainActivity extends Activity {
     public static native String FixCrash();
     public String CURRENT_PACKAGE;
     private TextView installIndia, btnStartGame;
-    private RadioGroup gameSelection;
-    private RadioButton radioIndia, tvHideEsp;
+    private View rootView;
+    private Prefs prefs;
+    private static final String PREF_THEME = "loader_theme";
     
     public static int gameType = 0;
     private boolean isGameLaunched = false;
@@ -89,67 +89,22 @@ public class MainActivity extends Activity {
         countDownStart();
         GameJsonMods();
         sharedPreferences = getSharedPreferences(getPackageName(), Activity.MODE_PRIVATE);
+        prefs = new Prefs(this);
         CheckFloatViewPermission();
         
-        selectedGamePkg = "";
-        gameType = 0;
-        isIndiaSelected = false;
+        rootView = findViewById(R.id.main_root);
+
+        View settingsButton = findViewById(R.id.btn_settings);
+        settingsButton.setOnClickListener(v -> showThemePicker());
+
+        selectedGamePkg = GAME_LIST_PKG[0];
+        gameType = 5;
+        isIndiaSelected = true;
         
         // Find Views
         installIndia = findViewById(R.id.installIndia);
         btnStartGame = findViewById(R.id.btn_start_game);
-        gameSelection = findViewById(R.id.radio_group_games);
-        radioIndia = findViewById(R.id.radio_india);
-        tvHideEsp = findViewById(R.id.tv_hide_esp);
-
-        // Make sure radio button is unchecked initially
-        if (radioIndia != null) {
-            radioIndia.setChecked(false);
-        }
-        
-        // Set RadioButton click listener
-        if (radioIndia != null) {
-            radioIndia.setOnClickListener(v -> {
-                boolean isChecked = radioIndia.isChecked();
-                
-                if (isChecked) {
-                    selectedGamePkg = GAME_LIST_PKG[0];
-                    gameType = 5;
-                    isIndiaSelected = true;
-                    BoxApplication.get().showToastWithImage("✓ India Game Selected ✓", TastyToast.SUCCESS);
-                    
-                    radioIndia.animate()
-                        .scaleX(1.1f)
-                        .scaleY(1.1f)
-                        .setDuration(200)
-                        .withEndAction(() -> {
-                            radioIndia.animate()
-                                .scaleX(1f)
-                                .scaleY(1f)
-                                .setDuration(200)
-                                .start();
-                        })
-                        .start();
-                } else {
-                    selectedGamePkg = "";
-                    gameType = 0;
-                    isIndiaSelected = false;
-                    BoxApplication.get().showToastWithImage("Game deselected", TastyToast.INFO);
-                }
-            });
-        }
-        
-        // RadioGroup listener
-        if (gameSelection != null) {
-            gameSelection.setOnCheckedChangeListener((group, checkedId) -> {
-                if (checkedId == R.id.radio_india) {
-                    selectedGamePkg = GAME_LIST_PKG[0];
-                    gameType = 5;
-                    isIndiaSelected = true;
-                    BoxApplication.get().showToastWithImage("✓ India Game Selected ✓", TastyToast.SUCCESS);
-                }
-            });
-        }
+        applySelectedTheme();
         
         // Update Install Button State
         updateButtonState(0, installIndia);
@@ -159,25 +114,6 @@ public class MainActivity extends Activity {
 
         // Start Game button click listener
         btnStartGame.setOnClickListener(v -> {
-            if (!isIndiaSelected || selectedGamePkg == null || selectedGamePkg.isEmpty()) {
-                BoxApplication.get().showToastWithImage("⚠ Please select India game first! ⚠", TastyToast.WARNING);
-                if (radioIndia != null) {
-                    radioIndia.animate()
-                        .scaleX(1.2f)
-                        .scaleY(1.2f)
-                        .setDuration(300)
-                        .withEndAction(() -> {
-                            radioIndia.animate()
-                                .scaleX(1f)
-                                .scaleY(1f)
-                                .setDuration(300)
-                                .start();
-                        })
-                        .start();
-                }
-                return;
-            }
-
             if (!ApkEnv.getInstance().isInstalled(selectedGamePkg)) {
                 BoxApplication.get().showToastWithImage(Constants.GAME_NOT_INSTALL, TastyToast.ERROR);
                 return;
@@ -186,17 +122,6 @@ public class MainActivity extends Activity {
             do_Lib_And_Run(selectedGamePkg);
             startPatcher();
         });
-        
-        // Hide ESP option click listener
-        if (tvHideEsp != null) {
-            tvHideEsp.setOnClickListener(v -> {
-                if (tvHideEsp.isChecked()) {
-                    BoxApplication.get().showToastWithImage("🔒 ESP Hidden Mode Activated", TastyToast.SUCCESS);
-                } else {
-                    BoxApplication.get().showToastWithImage("👁️ ESP Visible Mode", TastyToast.INFO);
-                }
-            });
-        }
         
         // Start download - DownloadZip will show its own animation and dialog
         // No need to show any toast here as DownloadZip handles it
@@ -220,6 +145,72 @@ public class MainActivity extends Activity {
                 // You can add any additional logic here if needed
             }
         });
+    }
+
+    private void showThemePicker() {
+        final String[] themeNames = new String[]{"Neon Blue", "Cyber Purple", "Emerald Tech", "Amber Elite"};
+        int selected = prefs.getInt(PREF_THEME, 0);
+        new AlertDialog.Builder(this)
+                .setTitle("Select Theme")
+                .setSingleChoiceItems(themeNames, selected, (dialog, which) -> {
+                    prefs.setInt(PREF_THEME, which);
+                    applySelectedTheme();
+                    dialog.dismiss();
+                })
+                .setNegativeButton("Cancel", null)
+                .show();
+    }
+
+    private void applySelectedTheme() {
+        int themeIndex = prefs.getInt(PREF_THEME, 0);
+        int accent;
+        int accentSoft;
+        switch (themeIndex) {
+            case 1:
+                accent = Color.parseColor("#9D4DFF");
+                accentSoft = Color.parseColor("#CEB2FF");
+                break;
+            case 2:
+                accent = Color.parseColor("#14E6A3");
+                accentSoft = Color.parseColor("#9FF8DD");
+                break;
+            case 3:
+                accent = Color.parseColor("#FFB347");
+                accentSoft = Color.parseColor("#FFD79A");
+                break;
+            case 0:
+            default:
+                accent = Color.parseColor("#4DB8FF");
+                accentSoft = Color.parseColor("#9AB4FF");
+                break;
+        }
+
+        if (rootView != null) rootView.setBackgroundColor(Color.parseColor("#000000"));
+        tintText(R.id.PremiumFileManager, accent);
+        tintText(R.id.tv_d, accent);
+        tintText(R.id.tv_h, accent);
+        tintText(R.id.tv_m, accent);
+        tintText(R.id.tv_s, accent);
+        tintText(R.id.IndiaVersion, accentSoft);
+        tintText(R.id.tv_welcome, accentSoft);
+        tintText(R.id.tv_announcement, accent);
+        tintText(R.id.tv_announcement2, accentSoft);
+        tintButtonBackground(R.id.installIndia, accent);
+        tintButtonBackground(R.id.btn_start_game, accent);
+    }
+
+    private void tintText(int id, int color) {
+        TextView view = findViewById(id);
+        if (view != null) view.setTextColor(color);
+    }
+
+    private void tintButtonBackground(int id, int color) {
+        View view = findViewById(id);
+        if (view == null || view.getBackground() == null) return;
+        view.getBackground().mutate().setTint(color);
+        if (view instanceof TextView) {
+            ((TextView) view).setTextColor(Color.parseColor("#EAF7FF"));
+        }
     }
     
     public void do_Lib_And_Run(String packageName) {

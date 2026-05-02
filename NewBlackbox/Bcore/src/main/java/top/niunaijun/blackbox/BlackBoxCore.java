@@ -1260,6 +1260,18 @@ public class BlackBoxCore extends ClientConfiguration {
         return mClientConfiguration.isHideRoot();
     }
 
+    public boolean isHideXposed() {
+        return mClientConfiguration.isHideXposed();
+    }
+
+    public int getTargetFps() {
+        return mClientConfiguration.getTargetFps();
+    }
+
+    public boolean isLowLatencyNetworkMode() {
+        return mClientConfiguration.isLowLatencyNetworkMode();
+    }
+
     @Override
     public boolean isDisableFlagSecure() {
         return mClientConfiguration.isDisableFlagSecure();

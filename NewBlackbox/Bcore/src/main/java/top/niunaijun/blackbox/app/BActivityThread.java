@@ -25,6 +25,7 @@ import android.os.ConditionVariable;
 import android.os.Handler;
 import android.os.IBinder;
 import android.os.IInterface;
+import android.os.Process;
 import android.os.Looper;
 import android.os.RemoteException;
 import android.os.StrictMode;
@@ -393,6 +394,7 @@ public class BActivityThread extends IBActivityThread.Stub {
         }
 
         VirtualRuntime.setupRuntime(processName, applicationInfo);
+        optimizeForHighFpsAndLatency();
 
         BRVMRuntime.get(BRVMRuntime.get().getRuntime()).setTargetSdkVersion(applicationInfo.targetSdkVersion);
         if (BuildCompat.isS()) {
@@ -400,6 +402,9 @@ public class BActivityThread extends IBActivityThread.Stub {
         }
 
         NativeCore.init(Build.VERSION.SDK_INT);
+        if (BlackBoxCore.get().isHideXposed()) {
+            NativeCore.hideXposed();
+        }
         assert packageContext != null;
         IOCore.get().enableRedirect(packageContext);
 
@@ -482,6 +487,22 @@ public class BActivityThread extends IBActivityThread.Stub {
         } catch (Exception e) {
             Slog.e(TAG, "Critical error in handleBindApplication", e);
             throw new RuntimeException("Unable to makeApplication", e);
+        }
+    }
+
+    private void optimizeForHighFpsAndLatency() {
+        try {
+            int targetFps = BlackBoxCore.get().getTargetFps();
+            if (targetFps >= 90) {
+                Process.setThreadPriority(Process.THREAD_PRIORITY_DISPLAY);
+                Slog.d(TAG, "High FPS mode enabled, main thread priority raised. targetFps=" + targetFps);
+            }
+            if (BlackBoxCore.get().isLowLatencyNetworkMode()) {
+                Process.setThreadPriority(Process.THREAD_PRIORITY_URGENT_DISPLAY);
+                Slog.d(TAG, "Low latency network mode enabled, process priority boosted");
+            }
+        } catch (Throwable e) {
+            Slog.w(TAG, "Failed to apply FPS/latency optimization: " + e.getMessage());
         }
     }
     

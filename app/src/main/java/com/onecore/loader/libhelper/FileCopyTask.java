@@ -143,14 +143,14 @@ public class FileCopyTask {
             
             copyIcon = new ImageView(activity);
             copyIcon.setImageResource(android.R.drawable.stat_sys_download);
-            copyIcon.setColorFilter(Color.parseColor("#FFD700"));
+            copyIcon.setColorFilter(Color.parseColor("#4DB8FF"));
             LinearLayout.LayoutParams iconParams = new LinearLayout.LayoutParams(70, 70);
             iconParams.bottomMargin = 20;
             copyIcon.setLayoutParams(iconParams);
             
             copyTitleText = new TextView(activity);
-            copyTitleText.setText("✦ COPYING FILES ✦");
-            copyTitleText.setTextColor(Color.parseColor("#FFD700"));
+            copyTitleText.setText("COPYING FILES");
+            copyTitleText.setTextColor(Color.parseColor("#4DB8FF"));
             copyTitleText.setTextSize(18);
             copyTitleText.setTypeface(premiumFont);
             copyTitleText.setGravity(Gravity.CENTER);
@@ -158,7 +158,7 @@ public class FileCopyTask {
             
             copyMessageText = new TextView(activity);
             copyMessageText.setText("");
-            copyMessageText.setTextColor(Color.parseColor("#CCFFD700"));
+            copyMessageText.setTextColor(Color.parseColor("#B34DB8FF"));
             copyMessageText.setTextSize(12);
             copyMessageText.setTypeface(premiumFont);
             copyMessageText.setGravity(Gravity.CENTER);
@@ -172,13 +172,13 @@ public class FileCopyTask {
             progressParams.bottomMargin = 10;
             copyProgressBar.setLayoutParams(progressParams);
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-                copyProgressBar.setProgressTintList(android.content.res.ColorStateList.valueOf(Color.parseColor("#FFD700")));
-                copyProgressBar.setProgressBackgroundTintList(android.content.res.ColorStateList.valueOf(Color.parseColor("#33FFD700")));
+                copyProgressBar.setProgressTintList(android.content.res.ColorStateList.valueOf(Color.parseColor("#4DB8FF")));
+                copyProgressBar.setProgressBackgroundTintList(android.content.res.ColorStateList.valueOf(Color.parseColor("#334DB8FF")));
             }
             
             copyProgressText = new TextView(activity);
             copyProgressText.setText("0% • 0.00 MB / 0.00 MB");
-            copyProgressText.setTextColor(Color.parseColor("#FFD700"));
+            copyProgressText.setTextColor(Color.parseColor("#4DB8FF"));
             copyProgressText.setTextSize(11);
             copyProgressText.setTypeface(premiumFont);
             copyProgressText.setGravity(Gravity.CENTER);
@@ -224,7 +224,7 @@ public class FileCopyTask {
             @Override
             public void run() {
                 if (copyTitleText != null && isCopying) {
-                    copyTitleText.setText("✦ COPYING FILES" + dotPattern[dotCount[0]] + " ✦");
+                    copyTitleText.setText("COPYING FILES" + dotPattern[dotCount[0]]);
                     dotCount[0] = (dotCount[0] + 1) % dotPattern.length;
                     handler.postDelayed(this, 400);
                 }
@@ -244,7 +244,7 @@ public class FileCopyTask {
                 copyProgressText.setText(progressText);
                 
                 String timeMessage = String.format(Locale.getDefault(),
-                        "⏱️ Time: %d ms", System.currentTimeMillis() - startTime);
+                        "Time: %d ms", System.currentTimeMillis() - startTime);
                 copyMessageText.setText(timeMessage);
                 
                 AlphaAnimation fadeAnim = new AlphaAnimation(0.5f, 1f);
@@ -298,11 +298,11 @@ public class FileCopyTask {
             dialogLayout.setBackground(bgShape);
             
             TextView titleText = new TextView(activity);
-            titleText.setText(success ? "✓ SUCCESS ✓" : "✗ FAILED ✗");
+            titleText.setText(success ? "SUCCESS" : "FAILED");
             titleText.setTextSize(20);
             titleText.setTypeface(getPremiumFont(), Typeface.BOLD);
             titleText.setGravity(Gravity.CENTER);
-            titleText.setTextColor(success ? Color.parseColor("#FFD700") : Color.parseColor("#FF4444"));
+            titleText.setTextColor(success ? Color.parseColor("#4DB8FF") : Color.parseColor("#FF4444"));
             titleText.setPadding(0, 0, 0, 20);
             
             TextView messageText = new TextView(activity);
@@ -326,7 +326,7 @@ public class FileCopyTask {
             android.graphics.drawable.GradientDrawable buttonShape = new android.graphics.drawable.GradientDrawable();
             buttonShape.setShape(android.graphics.drawable.GradientDrawable.RECTANGLE);
             buttonShape.setCornerRadius(25);
-            buttonShape.setColor(Color.parseColor("#FFD700"));
+            buttonShape.setColor(Color.parseColor("#4DB8FF"));
             buttonText.setBackground(buttonShape);
             
             dialogLayout.addView(titleText);
@@ -456,9 +456,9 @@ public class FileCopyTask {
             @Override
             protected void onPostExecute(Boolean success) {
                 if (success) {
-                    String successMsg = "✓ Files copied successfully!\n✓ Virtual storage: " + copiedToPath;
+                    String successMsg = "Files copied successfully. Virtual storage: " + copiedToPath;
                     if (!dataCopyWarning.isEmpty()) {
-                        successMsg += "\n⚠ " + dataCopyWarning;
+                        successMsg += "\nWarning: " + dataCopyWarning;
                     }
                     hideCopyAnimation(true, successMsg);
                 } else {
